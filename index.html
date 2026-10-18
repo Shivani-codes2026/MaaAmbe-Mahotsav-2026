@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maa Ambe Mahotsav 2026 - Bihar Sharif</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#FFD700;--maroon:#4a0a0a;--glass:rgba(255,255,255,0.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#0f0f0f;color:#fff;overflow-x:hidden}
+header{position:fixed;top:0;width:100%;z-index:100;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);padding:14px 5%;display:flex;justify-content:space-between;align-items:center}
+header h1{font-family:Cinzel;color:var(--gold);font-size:1.2rem}
+.hero{height:90vh;background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.9)),url('https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=1200') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+.hero-box{background:var(--glass);backdrop-filter:blur(12px);border:1px solid rgba(255,215,0,0.3);padding:40px;border-radius:20px;max-width:700px}
+.hero-box h2{font-family:Cinzel;font-size:2.8rem;color:var(--gold);line-height:1.2}
+.hero-box p{margin:15px 0;opacity:0.8}
+.btn-primary{background:var(--gold);color:#000;padding:12px 28px;border-radius:30px;border:none;font-weight:600;cursor:pointer}
+
+/* PANDAL SECTION */
+#pandals{padding:80px 5%;background:radial-gradient(circle at top,#2a1010,#0f0f0f)}
+#pandals h2{font-family:Cinzel;color:var(--gold);font-size:2.2rem;text-align:center}
+#pandals .sub{text-align:center;opacity:0.6;margin:10px 0 30px}
+.filters{display:flex;gap:10px;overflow-x:auto;padding-bottom:20px;justify-content:flex-start}
+.filters button{white-space:nowrap;background:transparent;border:1px solid rgba(255,215,0,0.3);color:#fff;padding:8px 18px;border-radius:20px;cursor:pointer;transition:0.3s}
+.filters button.active,.filters button:hover{background:var(--gold);color:#000}
+.pandal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.card{background:var(--glass);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;cursor:pointer;transition:0.3s}
+.card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.card-img{height:200px;background-size:cover;background-position:center;position:relative}
+.card-tag{position:absolute;top:10px;left:10px;background:var(--gold);color:#000;font-size:0.7rem;padding:4px 10px;border-radius:12px;font-weight:700}
+.card-body{padding:16px}
+.card-body h3{font-size:1rem;color:var(--gold);margin-bottom:6px}
+.card-body p{font-size:0.8rem;opacity:0.7;line-height:1.4;height:65px;overflow:hidden}
+.meta{display:flex;justify-content:space-between;margin-top:12px;font-size:0.7rem;opacity:0.6}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:200;padding:15px}
+.modal.show{display:flex}
+.modal-box{background:#1a1a1a;border-radius:16px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;border:1px solid var(--gold)}
+#mGallery img{transition:0.2s}
+#mGallery img:hover{transform:scale(1.1)}
+</style>
+</head>
+<body>
+
+<header><h1>Maa Ambe Mahotsav 2026</h1></header>
+
+<div class="hero">
+  <div class="hero-box">
+    <h2>Bihar Sharif Ke 11 Maha Darbar</h2>
+    <p>Bihar Sharif ka sabse bada Digital Durga Puja Guide - Har Pandal, Har Raasta, Har Aarti ek jagah</p>
+    <button class="btn-primary" onclick="document.getElementById('pandals').scrollIntoView({behavior:'smooth'})">Pandal Dekhe</button>
+  </div>
+</div>
+
+<section id="pandals">
+  <h2>Popular Pandals in Bihar Sharif</h2>
+  <p class="sub">Bihar Sharif ke prasiddh 11 mahashakti peeth - jahan har gali me Maa ka darbar sajta hai</p>
+  
+  <div class="filters">
+    <button class="active" onclick="filterCity('all',this)">All Bihar Sharif</button>
+    <button onclick="filterCity('Bari Pahari',this)">Bari Pahari</button>
+    <button onclick="filterCity('Pul Par',this)">Pul Par</button>
+    <button onclick="filterCity('Kargil Chowk',this)">Kargil Chowk</button>
+    <button onclick="filterCity('Soh Sarai',this)">Soh Sarai</button>
+    <button onclick="filterCity('Mughal Kuan',this)">Mughal Kuan</button>
+    <button onclick="filterCity('Mehdi Nagar',this)">Mehdi Nagar</button>
+    <button onclick="filterCity('Bhaisasur',this)">Bhaisasur</button>
+    <button onclick="filterCity('Sohdih',this)">Sohdih</button>
+  </div>
+
+  <div class="pandal-grid" id="pandalGrid"></div>
+</section>
+
+<div class="modal" id="modal" onclick="if(event.target==this) this.classList.remove('show')">
+  <div class="modal-box">
+    <div style="height:350px;background-size:cover;background-position:center" id="mImg"></div>
+    <div id="mGallery" style="display:flex;gap:8px;overflow-x:auto;padding:12px;background:#111;"></div>
+    <div style="padding:20px">
+      <h3 id="mTitle" style="font-family:Cinzel;color:var(--gold)"></h3>
+      <p id="mDesc" style="opacity:0.7;margin:10px 0;font-size:0.9rem;line-height:1.6"></p>
+      <p id="mLoc" style="color:var(--gold);font-size:0.8rem"></p>
+      <button class="btn-primary" style="margin-top:16px" onclick="document.getElementById('modal').classList.remove('show')">Band Kare</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const pandals=[
+{title:"Bari Pahari Sarvajanik Durga Sthan - 100 Saal Purana", city:"Bari Pahari", crowd:"Very High", time:"6 AM - 2 AM", rating:4.9, km:"0.5 km", img:"https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800", tag:"100 Years Old", desc:"Bihar Sharif ka itihaas yahin se shuru hota hai. 100 saal se bhi zyada purani parampara hai is sthan ki. Kolkata ke karigaron dwara shuddh Ganga mitti se 15 ft unchi Maa ki murti banayi jati hai, jo sona-chandi ke asli gehno se saji hoti hai. Saptami se Dashami tak yahan din-raat bhog, bhakti sangeet aur chandi ki chhatra chadhayi ka vishal ayojan hota hai."},
+{title:"Pul Par Durga Puja Samiti - Sabse Bada Pandal", city:"Pul Par", crowd:"Extreme High", time:"24 Hours Open", rating:5.0, km:"1.2 km", img:"https://images.unsplash.com/photo-1598890777032-bde83547de05?q=80&w=800", tag:"Viral Theme", desc:"Ise Bihar Sharif ka Dak Bungalow kaha jata hai. Har saal yahan ka theme pure Bihar me charcha ka vishay hota hai - kabhi Kedarnath Dham, kabhi Ayodhya Ram Mandir, kabhi Belur Math. 50 lakh se zyada ke kharch se banta hai ye bhavya pandal. 30 ft ka pravesh dwar, light aur sound ka laser show iski pehchan hai."},
+{title:"Kargil Chowk Youth Club - Yuvaon Ki Shaan", city:"Kargil Chowk", crowd:"High", time:"5 PM - 1 AM", rating:4.8, km:"0.8 km", img:"https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?q=80&w=800", tag:"Creative", desc:"Bihar Sharif ke yuvaon ke jazbe ka prateek hai ye pandal. Sabse creative aur modern soch yahin milti hai. Har saal social message par theme hota hai jaise Beti Bachao, Swachh Nalanda. Yahan ka selfie zone, LED light decoration aur eco-friendly murti sabse zyada Instagram par viral hoti hai."},
+{title:"Soh Sarai Main Road - Bhakti Ka Sagar", city:"Soh Sarai", crowd:"Moderate", time:"6 AM - 11 PM", rating:4.9, km:"2.0 km", img:"https://images.unsplash.com/photo-1606293926075-69a00febf780?q=80&w=800", tag:"Shant Darshan", desc:"Soh Sarai ka ye pandal apni shanti aur pavitrata ke liye mashhoor hai. Yahan shor nahi, sirf sachchi bhakti milti hai. Rozana 1000+ kanya bhojan, mahilaon dwara kalash yatra aur Durga Saptashati ka paath hota hai. Jo log bheed se door shaant mann se Maa ka darshan karna chahte hain, wo yahin aate hain."},
+{title:"Mughal Kuan Nalanda Road - Royal Palace Theme", city:"Mughal Kuan", crowd:"High", time:"4 PM - 12 AM", rating:4.7, km:"1.5 km", img:"https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=800", tag:"Royal", desc:"Bihar Sharif ka sabse royal aur shahi andaaz wala pandal. Har saal Rajasthan ke mahal ya Mysore Palace jaisa theme banaya jata hai. Andar jaate hi aisa lagta hai jaise aap kisi raja ke darbar me aa gaye ho. Murti ki aankhein bilkul jeevant lagti hain, isiliye ise 'Jeevant Maa' bhi kehte hain."},
+{title:"Garhpar Ramchandrapur - Gaon Ki Parampara", city:"Bari Pahari", crowd:"Moderate", time:"5 AM - 10 PM", rating:4.6, km:"3.0 km", img:"https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800", tag:"Traditional", desc:"Shahar ke beech gaanv ki mitti ki khushboo wala pandal. Yahan aaj bhi purane zamane ki tarah baans aur pual se pandal banaya jata hai. Maa ki chowki, jagran aur dhol-tasha ka asli anand yahin milta hai. Dashami par sindoor khela dekhne layak hota hai."},
+{title:"Khasganj Amlatola - Bazar Ka Pandal", city:"Pul Par", crowd:"Very High", time:"10 AM - 2 AM", rating:4.8, km:"1.0 km", img:"https://images.unsplash.com/photo-1598890777032-bde83547de05?q=80&w=800", tag:"Bheed Wala", desc:"Bihar Sharif ke sabse bade bazaar ke beech ka pandal. Din me kharidari aur shaam ko Maa ke darshan. Vyapari sangh dwara ayojit is pandal me har bhakt ko prasad me chunari di jati hai. Ashtami ki raat ki maha aarti pure shahar me gunjti hai."},
+{title:"Naya Tola Badi Durga Maharani", city:"Soh Sarai", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"2.5 km", img:"https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800", tag:"Badi Maharani", desc:"Jise sab pyaar se 'Badi Durga Maharani' kehte hain. Yahan ki Maa ki murti Bihar Sharif me sabse unchi - lagbhag 18 ft. Visarjan ke din jab Maa ki shobha yatra nikalti hai to pura shahar ek saath umad padta hai. 50 dhol, 20 jhanki aur hazaron bhakton ke saath Maa ko vida kiya jata hai."},
+{title:"Mehdi Nagar - Maa Vaishno Darbar", city:"Mehdi Nagar", crowd:"Very High", time:"6 AM - 1 AM", rating:4.9, km:"1.8 km", img:"https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?q=80&w=800", tag:"Vaishno Theme", desc:"Mehdi Nagar ka ye pandal apne gufa wale design ke liye pure Bihar Sharif me mashhoor hai. Yahan har saal Maa Vaishno Devi ki gufa jaisa 100 ft lamba pandal banaya jata hai, jahan bhakton ko jhuk kar gufa ke andar se Maa ke darbar me jana padta hai. Andar thanda paani, bhajan aur jai mata di ke naaron se ekdum asli Vaishno Dham jaisa ehsaas hota hai."},
+{title:"Bhaisasur Mela Ground - Sabse Bada Mela", city:"Bhaisasur", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"3.5 km", img:"https://images.unsplash.com/photo-1606293926075-69a00febf780?q=80&w=800", tag:"Mela Ground", desc:"Bhaisasur ka mela ground pandal Bihar Sharif ka sabse bada mela maana jata hai. Yahan pandal ke saath-saath 200 se zyada dukane, jhule, khaane-peene ke stall aur meena bazaar lagta hai. Pandal har saal Kumbh Mela theme ya Akshardham Mandir theme par banta hai. Din me mela aur raat me Maa ki maha aarti, dono ka alag hi maza hai."},
+{title:"Sohdih Pul - Highway Ka Raja", city:"Sohdih", crowd:"High", time:"5 PM - 12 AM", rating:4.8, km:"4.0 km", img:"https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=800", tag:"Highway King", desc:"Sohdih ka ye pandal NH-20 highway par hone ki wajah se sabse zyada logon ko akarshit karta hai. Patna, Rajgir, Nawada se aane wale sabhi bhakt yahin pehle Maa ka darshan karte hain. 40 ft unchi lighting ka gate highway se hi dikhai deta hai. Truck, bus rok kar log yahan darshan karne aate hain."}
+];
+
+function renderPandals(list){
+  const grid=document.getElementById('pandalGrid');
+  grid.innerHTML=list.map(p=>`
+    <div class="card" onclick="openModal('${p.title}','${p.desc}','${p.city}',['${p.img}','${p.img}','${p.img}'])">
+      <div class="card-img" style="background-image:url('${p.img}')"><span class="card-tag">${p.tag}</span></div>
+      <div class="card-body">
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <div class="meta"><span>📍 ${p.city}</span><span>⭐ ${p.rating}</span><span>⏰ ${p.time}</span></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterCity(city,btn){
+  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  if(city==='all') renderPandals(pandals);
+  else renderPandals(pandals.filter(p=>p.city===city));
+}
+
+function openModal(title,desc,loc,images){
+  document.getElementById('mTitle').innerText=title;
+  document.getElementById('mDesc').innerText=desc;
+  document.getElementById('mLoc').innerText='📍 '+loc;
+  let all=Array.isArray(images)?images:[images];
+  document.getElementById('mImg').style.backgroundImage=`url('${all[0]}')`;
+  document.getElementById('mGallery').innerHTML=all.map(img=>`<img src="${img}" onclick="document.getElementById('mImg').style.backgroundImage='url(\\'${img}\\')'" style="width:70px;height:70px;object-fit:cover;border-radius:8px;cursor:pointer;border:2px solid gold;">`).join('');
+  document.getElementById('modal').classList.add('show');
+}
+
+renderPandals(pandals);
+</script>
+</body>
+</html>
