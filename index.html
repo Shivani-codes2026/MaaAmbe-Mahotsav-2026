@@ -96,12 +96,40 @@ nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between
   box-shadow:0 6px 20px rgba(0,0,0,0.5), inset 0 3px 8px rgba(255,255,255,0.9), 0 0 20px rgba(255,215,0,0.6);
 }
 
-.sunahra-eyes{width:115px; height:50px; position:relative; overflow:hidden; border-radius:25px; border:2.5px solid #ffd700; background:#000; margin-top:8px; box-shadow:0 0 15px rgba(255,215,0,0.5);}
+
+/* EYES FIX - FIT SIZE */
+.top-mata-wrap{width:100%; display:flex; flex-direction:column; align-items:center; margin:0 auto 8px auto}
+.maa-eyes-farman{
+  width:100%; max-width:320px; height:150px;
+  position:relative; overflow:hidden;
+  border-radius:18px; border:2px solid #ffd700;
+  background:#000; cursor:pointer;
+  box-shadow:0 0 15px rgba(255,215,0,0.4);
+  margin:0 auto;
+}
+.maa-eyes-farman img{
+  width:100%; height:100%;
+  object-fit:cover; object-position:center 30%;
+  display:block;
+}
+.maa-eyes-farman .eyelid{
+  position:absolute; left:0; width:100%; height:50.5%;
+  background:#000; z-index:5;
+  transition:transform 0.6s ease;
+}
+.maa-eyes-farman .eyelid.top{top:0}
+.maa-eyes-farman .eyelid.bottom{bottom:0}
+.maa-eyes-farman.open .eyelid.top{transform:translateY(-100%)}
+.maa-eyes-farman.open .eyelid.bottom{transform:translateY(100%)}
+.maa-eyes-farman.closed .eyelid.top{transform:translateY(0)}
+.maa-eyes-farman.closed .eyelid.bottom{transform:translateY(0)}
+  
+/*.sunahra-eyes{width:115px; height:50px; position:relative; overflow:hidden; border-radius:25px; border:2.5px solid #ffd700; background:#000; margin-top:8px; box-shadow:0 0 15px rgba(255,215,0,0.5);}
 .sunahra-eyes img{width:100%; height:100%; object-fit:cover; object-position:center 40%;}
 .sunahra-eyes .eyelid{position:absolute; left:0; width:100%; height:50.5%; background:#000; z-index:5; transition:transform 0.7s;}
 .sunahra-eyes .eyelid.top{top:0;} .sunahra-eyes .eyelid.bottom{bottom:0;}
 .sunehri-envelope.open .sunahra-eyes .eyelid.top{transform:translateY(-101%);}
-.sunehri-envelope.open .sunahra-eyes .eyelid.bottom{transform:translateY(101%);}
+.sunehri-envelope.open .sunahra-eyes .eyelid.bottom{transform:translateY(101%);}*/
 
 .sunahra-click{color:#ffe87a; font-size:13px; margin-top:12px; letter-spacing:0.8px; font-weight:700; text-shadow:0 0 10px #ffd700; animation:sunehriBlink 1.4s infinite;}
 @keyframes sunehriBlink{0%,100%{opacity:1}50%{opacity:0.5}}
@@ -256,12 +284,22 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
       <button class="btn-primary" onclick="document.getElementById('idols').scrollIntoView({behavior:'smooth'})">✨ Explore Idols →</button>
       <button class="btn-secondary" onclick="document.getElementById('pandals').scrollIntoView({behavior:'smooth'})">📍 Find Pandals</button>
     </div>
+    <!-- New eyes-->
     
-    
-    
+    <div class="top-mata-wrap">
+  <div class="maa-eyes-farman open" id="mataEyes" onclick="blinkEyes()">
+    <img src="black-eyes.jpg" alt="Maa Eyes">
+    <div class="eyelid top"></div>
+    <div class="eyelid bottom"></div>
+  </div>
+  <div style="display:flex; gap:10px; margin-top:8px;">
+    <button onclick="openEyes()" style="background:#e8c36a; border:0; padding:5px 12px; border-radius:20px; font-size:12px; font-weight:600;">Aankhe Khol</button>
+    <button onclick="closeEyes()" style="background:#7a0a14; color:#fff; border:0; padding:5px 12px; border-radius:20px; font-size:12px;">Band Kar</button>
+  </div>
+</div>
     
     <!-- EYES SABSE UPAR -->
-<div class="top-mata-wrap">
+<!--<div class="top-mata-wrap">
   <div class="maa-eyes-farman" id="mataEyes" onclick="blinkEyes()">
     <img src="black-eyes.jpg">
     <div class="eyelid top"></div>
@@ -514,7 +552,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
 <script>
 
 // MATA KI ANKHE - JS SYSTEM
-const mataEyes = document.getElementById('mataEyes');
+/*const mataEyes = document.getElementById('mataEyes');
 
 function openEyes() {
   mataEyes.classList.add('open');
@@ -532,7 +570,7 @@ function blinkEyes() {
   setTimeout(() => {
     openEyes();
   }, 250); // 250ms me wapas khul jayegi
-}
+}*/
 
 // 1. Farman (envelope) khule to auto aankhe khule
 const envelope = document.querySelector('.envelope');
@@ -751,7 +789,25 @@ if(sunehriEnvelope){
 
 
 
-
+function openEyes(){
+  const el = document.getElementById('mataEyes');
+  el.classList.remove('closed');
+  el.classList.add('open');
+}
+function closeEyes(){
+  const el = document.getElementById('mataEyes');
+  el.classList.remove('open');
+  el.classList.add('closed');
+}
+function blinkEyes(){
+  closeEyes();
+  setTimeout(openEyes, 700);
+}
+// Page khulte hi aankh khuli rahegi aur har 5 sec me jhapkegi
+document.addEventListener('DOMContentLoaded', ()=>{
+  openEyes();
+  setInterval(blinkEyes, 4000);
+});
 
 
 
