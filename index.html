@@ -1,63 +1,433 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maa Ambe Mahotsav 2026 - Bihar Sharif</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>DURGA UTSAV - Magical Patna Pandals</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#FFD700;--maroon:#4a0a0a;--glass:rgba(255,255,255,0.08)}
+:root{--bg:#0a0708;--card:#151112;--gold:#e8c36a;--gold2:#a67c2e;--maroon:#8e1a24;--cream:#fff2d6}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;background:#0f0f0f;color:#fff;overflow-x:hidden}
-header{position:fixed;top:0;width:100%;z-index:100;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);padding:14px 5%;display:flex;justify-content:space-between;align-items:center}
-header h1{font-family:Cinzel;color:var(--gold);font-size:1.2rem}
-.hero{height:90vh;background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.9)),url('https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=1200') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
-.hero-box{background:var(--glass);backdrop-filter:blur(12px);border:1px solid rgba(255,215,0,0.3);padding:40px;border-radius:20px;max-width:700px}
-.hero-box h2{font-family:Cinzel;font-size:2.8rem;color:var(--gold);line-height:1.2}
-.hero-box p{margin:15px 0;opacity:0.8}
-.btn-primary{background:var(--gold);color:#000;padding:12px 28px;border-radius:30px;border:none;font-weight:600;cursor:pointer}
+body{background:var(--bg);color:var(--cream);font-family:'Poppins',sans-serif;overflow-x:hidden;cursor:none}
+h1,h2{font-family:'Cinzel',serif}
+a{text-decoration:none;color:inherit}
 
-/* PANDAL SECTION */
-#pandals{padding:80px 5%;background:radial-gradient(circle at top,#2a1010,#0f0f0f)}
-#pandals h2{font-family:Cinzel;color:var(--gold);font-size:2.2rem;text-align:center}
-#pandals .sub{text-align:center;opacity:0.6;margin:10px 0 30px}
-.filters{display:flex;gap:10px;overflow-x:auto;padding-bottom:20px;justify-content:flex-start}
-.filters button{white-space:nowrap;background:transparent;border:1px solid rgba(255,215,0,0.3);color:#fff;padding:8px 18px;border-radius:20px;cursor:pointer;transition:0.3s}
-.filters button.active,.filters button:hover{background:var(--gold);color:#000}
-.pandal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
-.card{background:var(--glass);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;cursor:pointer;transition:0.3s}
-.card:hover{transform:translateY(-5px);border-color:var(--gold)}
-.card-img{height:200px;background-size:cover;background-position:center;position:relative}
-.card-tag{position:absolute;top:10px;left:10px;background:var(--gold);color:#000;font-size:0.7rem;padding:4px 10px;border-radius:12px;font-weight:700}
-.card-body{padding:16px}
-.card-body h3{font-size:1rem;color:var(--gold);margin-bottom:6px}
-.card-body p{font-size:0.8rem;opacity:0.7;line-height:1.4;height:65px;overflow:hidden}
-.meta{display:flex;justify-content:space-between;margin-top:12px;font-size:0.7rem;opacity:0.6}
+/* MAGICAL BACKGROUND */
+#canvas{position:fixed;inset:0;z-index:-1;opacity:0.7}
+.glow{position:fixed;width:600px;height:600px;background:radial-gradient(circle, rgba(232,195,106,0.15) 0%, transparent 70%);border-radius:50%;filter:blur(20px);pointer-events:none;animation:floatGlow 10s infinite alternate}
+.glow1{top:-100px;left:-100px} .glow2{bottom:-100px;right:-100px;background:radial-gradient(circle, rgba(142,26,36,0.3) 0%, transparent 70%)}
+@keyframes floatGlow{to{transform:translate(60px,40px) scale(1.2)}}
+
+/* CURSOR SPARKLE */
+.cursor{position:fixed;width:20px;height:20px;border:1px solid var(--gold);border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:screen;transition:0.1s}
+.sparkle{position:fixed;width:4px;height:4px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;animation:spark 1s forwards}
+@keyframes spark{0%{transform:scale(1);opacity:1}100%{transform:scale(0) translateY(-40px);opacity:0}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:18px 5%;background:rgba(10,7,8,0.8);backdrop-filter:blur(15px);border-bottom:1px solid rgba(232,195,106,0.1)}
+.logo{font-family:'Cinzel';font-size:1.3rem;letter-spacing:1px;display:flex;gap:10px;align-items:center}
+.logo span{color:var(--gold)}
+.links{display:flex;gap:30px;align-items:center;font-size:0.85rem;opacity:0.8}
+.links a:hover{color:var(--gold)}
+.btn-book{border:1px solid var(--gold);padding:8px 20px;border-radius:30px;box-shadow:0 0 15px rgba(232,195,106,0.3);transition:0.3s}
+.btn-book:hover{background:var(--gold);color:#000;box-shadow:0 0 25px var(--gold)}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1.1fr;min-height:92vh;align-items:center;padding:0 5%;position:relative}
+.hero-left h1{font-size:3.8rem;line-height:0.9}
+.hero-left h1 i{font-family:'Great Vibes';font-weight:400;color:var(--gold);font-size:4.2rem;display:block}
+.hero-left p{opacity:0.6;margin:18px 0 28px;max-width:460px;line-height:1.7;font-size:0.9rem}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(180deg, var(--maroon), #5a1016);border:1px solid var(--gold2);padding:12px 26px;border-radius:30px;font-weight:600;box-shadow:0 0 20px rgba(142,26,36,0.5);cursor:pointer;transition:0.3s}
+.btn-secondary{border:1px solid rgba(232,195,106,0.4);padding:12px 26px;border-radius:30px;background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);cursor:pointer}
+
+
+/* ===== EKDUM SUNAHRA PATRA + CHAMKILA EFFECT ===== */
+.sunahra-wrapper{position:relative; width:100%; display:flex; justify-content:center; margin:30px 0; overflow:visible;}
+.sunehri-barsat{position:absolute; left:50%; top:50%; width:0; height:0; pointer-events:none; z-index:20; overflow:visible;}
+
+/* Sunehri chamkila tukda */
+.sona-particle{
+  position:absolute; border-radius:50%;
+  background:radial-gradient(circle, #ffffff 0%, #fff8a0 20%, #ffd700 45%, #ffb700 80%);
+  box-shadow:0 0 8px #ffd700, 0 0 18px #ffae00, 0 0 30px rgba(255,215,0,0.6);
+  animation:sonaBurst 1.6s ease-out forwards;
+}
+@keyframes sonaBurst{
+  0%{transform:translate(-50%,-50%) scale(0) rotate(0deg); opacity:1;}
+  30%{opacity:1;}
+  100%{transform:translate(var(--x), var(--y)) scale(0) rotate(720deg); opacity:0;}
+}
+
+.sunehri-envelope{
+  position:relative; width:100%; max-width:450px; height:150px;
+  background:linear-gradient(145deg, #7a0a14 0%, #c4001a 30%, #7a0a14 100%);
+  border:3px solid transparent;
+  background-clip:padding-box;
+  border-radius:18px; cursor:pointer; overflow:hidden;
+  transition:all 1s cubic-bezier(0.77,0,0.175,1);
+  box-shadow:0 0 0 3px #e8c36a, 0 0 0 6px #a67c2e, 0 12px 35px rgba(0,0,0,0.6);
+}
+.sunehri-envelope::before{
+  content:''; position:absolute; inset:-3px; border-radius:18px; z-index:-1;
+  background:linear-gradient(45deg, #ffd700, #e8c36a, #a67c2e, #ffd700);
+  background-size:300% 300%; animation:goldBorder 3s linear infinite;
+}
+@keyframes goldBorder{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+
+.sunehri-envelope.open{
+  height:470px; background:#fffbe6;
+  box-shadow:0 0 0 3px #ffd700, 0 0 0 7px #e8c36a, 0 0 50px rgba(255,215,0,0.9), 0 0 90px rgba(255,174,0,0.5), 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.sunehri-front{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; z-index:2;
+  background:radial-gradient(ellipse at center, #a00c1a 0%, #7a0a14 70%);
+  transition:transform 1s cubic-bezier(0.77,0,0.175,1);
+}
+.sunehri-envelope.open .sunehri-front{transform:translateY(-104%);}
+
+.sunahra-mohar{
+  width:88px; height:88px; border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, #ffffff 0%, #fff8a0 10%, #ffd700 30%, #e8c36a 60%, #a67c2e 100%);
+  border:3px solid #7a0a14; display:flex; align-items:center; justify-content:center;
+  font-weight:900; color:#5a0a0a; font-size:12px; text-align:center; line-height:1.1;
+  box-shadow:0 6px 20px rgba(0,0,0,0.5), inset 0 3px 8px rgba(255,255,255,0.9), 0 0 20px rgba(255,215,0,0.6);
+}
+
+.sunahra-eyes{width:115px; height:50px; position:relative; overflow:hidden; border-radius:25px; border:2.5px solid #ffd700; background:#000; margin-top:8px; box-shadow:0 0 15px rgba(255,215,0,0.5);}
+.sunahra-eyes img{width:100%; height:100%; object-fit:cover; object-position:center 40%;}
+.sunahra-eyes .eyelid{position:absolute; left:0; width:100%; height:50.5%; background:#000; z-index:5; transition:transform 0.7s;}
+.sunahra-eyes .eyelid.top{top:0;} .sunahra-eyes .eyelid.bottom{bottom:0;}
+.sunehri-envelope.open .sunahra-eyes .eyelid.top{transform:translateY(-101%);}
+.sunehri-envelope.open .sunahra-eyes .eyelid.bottom{transform:translateY(101%);}
+
+.sunahra-click{color:#ffe87a; font-size:13px; margin-top:12px; letter-spacing:0.8px; font-weight:700; text-shadow:0 0 10px #ffd700; animation:sunehriBlink 1.4s infinite;}
+@keyframes sunehriBlink{0%,100%{opacity:1}50%{opacity:0.5}}
+
+.sunahra-patra{padding:22px; opacity:0; transition:opacity 0.7s 1s;}
+.sunehri-envelope.open .sunahra-patra{opacity:1;}
+.patra-golden-border{
+  position:relative; border:2.5px solid #ffd700; outline:1.5px solid #a67c2e; outline-offset:6px;
+  border-radius:12px; padding:18px 16px; text-align:center; overflow:hidden;
+  background:linear-gradient(180deg, #fffef5 0%, #fff8c0 50%, #fff2a0 100%);
+  box-shadow:inset 0 0 30px rgba(255,215,0,0.25);
+}
+.golden-shine{
+  position:absolute; top:0; left:-100%; width:100%; height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+  animation:shineMove 2.5s infinite 1.2s;
+}
+@keyframes shineMove{0%{left:-100%}100%{left:100%}}
+.patra-golden-border h2{color:#7a0a14; font-family:Cinzel; font-size:21px; margin:8px 0;}
+.patra-golden-border h3{color:#a67c2e; font-size:12px; letter-spacing:1.3px; margin-bottom:14px;}
+.sunehri-line{width:80px; height:3px; background:linear-gradient(90deg, #a67c2e, #ffd700, #a67c2e); margin:14px auto; border-radius:3px; box-shadow:0 0 8px #ffd700;}
+.patra-golden-border p{color:#2a2a2a; font-size:14px; line-height:1.75;}
+.jai-mata{color:#c4001a; font-weight:900; font-size:16px; display:block; margin-top:10px; text-shadow:0 0 10px rgba(255,215,0,0.5);}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hero-stats{display:flex;gap:14px;margin-top:30px}
+.stat{background:rgba(255,255,255,0.06);border:1px solid rgba(232,195,106,0.15);padding:12px 18px;border-radius:14px;backdrop-filter:blur(10px);min-width:120px}
+.stat b{color:var(--gold);font-size:1.2rem}
+
+.hero-right{position:relative;height:680px;display:flex;align-items:center;justify-content:center}
+
+
+
+
+/* JS se control hoga - isliye .open class alag rakha */
+.maa-eyes-farman .eyelid{
+  transition: transform 0.7s cubic-bezier(0.77,0,0.175,1);
+}
+.maa-eyes-farman.open .eyelid.top{
+  transform: translateY(-101%);
+}
+.maa-eyes-farman.open .eyelid.bottom{
+  transform: translateY(101%);
+}
+.maa-eyes-farman.open .sindoor-glow{
+  opacity: 1;
+  transition: opacity 0.8s 0.3s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.diya{position:absolute;width:60px;height:60px;background:radial-gradient(circle, #ffae42 0%, #ff6a00 40%, transparent 70%);border-radius:50%;filter:blur(0.5px);animation:diyaFloat 4s infinite ease-in-out;box-shadow:0 0 20px #ff8c00}
+@keyframes diyaFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-15px) scale(1.1)}}
+.diya1{top:20%;left:-10px} .diya2{bottom:30%;right:-10px} .diya3{top:10%;right:20%}
+
+/* SECTION */
+.section{padding:80px 5%}
+.title{text-align:center;margin-bottom:40px}
+.title h2{font-size:2.4rem;color:var(--gold)} .title p{opacity:0.5;font-size:0.9rem;margin-top:6px}
+
+/* CARDS GLASS */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.glass{background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));border:1px solid rgba(232,195,106,0.18);backdrop-filter:blur(20px);border-radius:20px;overflow:hidden;transition:0.4s;position:relative}
+.glass::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg, transparent, rgba(232,195,106,0.2), transparent);transition:0.6s}
+.glass:hover::before{left:100%}
+.glass:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(232,195,106,0.15)}
+.glass-img{height:280px;background-size:cover;background-position:center;position:relative}
+.glass-body{padding:18px}
+.price{color:var(--gold);font-weight:700}
+.badge{position:absolute;top:12px;right:12px;background:var(--maroon);font-size:0.65rem;padding:4px 10px;border-radius:20px;border:1px solid var(--gold)}
+
+/* PANDALS */
+.pandal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:20px}
+.pandal{padding:16px;display:flex;gap:16px;align-items:center}
+.pandal-img{width:140px;height:100px;border-radius:12px;background-size:cover;background-position:center;flex-shrink:0}
+
+/* FILTER */
+.filters{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.filters button{background:transparent;border:1px solid rgba(232,195,106,0.2);color:var(--cream);padding:8px 18px;border-radius:30px;cursor:pointer;transition:0.3s;font-size:0.8rem}
+.filters button.active{background:var(--gold);color:#000;box-shadow:0 0 15px var(--gold)}
 
 /* MODAL */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:200;padding:15px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}
 .modal.show{display:flex}
-.modal-box{background:#1a1a1a;border-radius:16px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;border:1px solid var(--gold)}
-#mGallery img{transition:0.2s}
-#mGallery img:hover{transform:scale(1.1)}
+.modal-box{max-width:800px;width:100%;background:var(--card);border-radius:24px;overflow:hidden;border:1px solid rgba(232,195,106,0.2);animation:pop 0.4s}
+@keyframes pop{from{transform:scale(0.8) translateY(30px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+
+footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:center;opacity:0.6;font-size:0.8rem}
+
+@media(max-width:900px){
+.hero{grid-template-columns:1fr} .hero-right{height:480px;order:-1}
+.grid{grid-template-columns:repeat(2,1fr)} .pandal-grid{grid-template-columns:1fr}
+.links{display:none} body{cursor:auto} .cursor{display:none}
+}
+@media(max-width:600px){.grid{grid-template-columns:1fr} .hero-left h1{font-size:2.6rem} .hero-left h1 i{font-size:3rem}}
 </style>
 </head>
 <body>
 
-<header><h1>Maa Ambe Mahotsav 2026</h1></header>
+<canvas id="canvas"></canvas>
+<div class="glow glow1"></div><div class="glow glow2"></div>
+<div class="cursor" id="cursor"></div>
 
-<div class="hero">
-  <div class="hero-box">
-    <h2>Bihar Sharif Ke 11 Maha Darbar</h2>
-    <p>Bihar Sharif ka sabse bada Digital Durga Puja Guide - Har Pandal, Har Raasta, Har Aarti ek jagah</p>
-    <button class="btn-primary" onclick="document.getElementById('pandals').scrollIntoView({behavior:'smooth'})">Pandal Dekhe</button>
+<nav>
+  <div class="logo">🔱 DURGA <span>UTSAV</span></div>
+  <div class="links">
+    <a href="#home" style="color:var(--gold)">Home</a>
+    <a href="#idols">Idols</a>
+    <a href="#pandals">Pandals</a>
+    <a href="#">About</a>
+    <a class="btn-book" href="#pandals">Book Darshan</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-left">
+    <h1>Celebrate <i>Durga Puja</i></h1>
+    <p>Discover handcrafted idols & immersive pandals of <b style="color:var(--gold)">Patna, Bihar</b> for the festive season. Bring home tradition, artistry and devotion.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('idols').scrollIntoView({behavior:'smooth'})">✨ Explore Idols →</button>
+      <button class="btn-secondary" onclick="document.getElementById('pandals').scrollIntoView({behavior:'smooth'})">📍 Find Pandals</button>
+    </div>
+    
+    
+    
+    
+    
+<!-- BIHAR SHARIF SUNAHRA NIMANTRAN - HTML ONLY -->
+<div class="sunahra-wrapper" id="sunahraWrapper">
+  <div class="sunehri-barsat" id="sunehriBarsat"></div>
+  
+  <div class="sunehri-envelope" id="sunehriEnvelope">
+    <div class="sunehri-front">
+      <div class="sunahra-mohar">बिहार<br>शरीफ</div>
+      <div class="sunahra-eyes" id="sunahraEyes">
+        <img src="black-eyes.jpg" alt="Mata">
+        <div class="eyelid top"></div>
+        <div class="eyelid bottom"></div>
+      </div>
+      <p class="sunahra-click">✨ सुनहरा निमंत्रण - क्लिक करें ✨</p>
+    </div>
+
+    <div class="sunahra-patra">
+      <div class="patra-golden-border">
+        <div class="golden-shine"></div>
+        <h2>॥ दुर्गा पूजा महा-निमंत्रण ॥</h2>
+        <h3>बिहार शरीफ नगर की ओर से</h3>
+        <div class="sunehri-line"></div>
+        <p>
+          <b>प्रिय बिहार वासियों,</b><br><br>
+          बिहार शरीफ की पावन धरती से<br>
+          आप सभी को <b>नवरात्रि एवं दुर्गा पूजा</b> की<br>
+          हार्दिक शुभकामनाएँ।<br><br>
+          माँ के 9 रूपों के दर्शन हेतु पधारें<br>
+          <b>बिहार शरीफ, नालंदा</b>
+        </p>
+        <div class="sunehri-line"></div>
+        <span class="jai-mata">★ जय माता दी ★</span>
+      </div>
+    </div>
   </div>
 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-<section id="pandals">
-  <h2>Popular Pandals in Bihar Sharif</h2>
-  <p class="sub">Bihar Sharif ke prasiddh 11 mahashakti peeth - jahan har gali me Maa ka darbar sajta hai</p>
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="hero-stats">
+      <div class="stat"><b>500+</b><br><small>Handcrafted Idols</small></div>
+      <div class="stat"><b>100+</b><br><small>Artistic Pandals</small></div>
+      <div class="stat"><b>20+</b><br><small>Cities Covered</small></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="diya diya1"></div><div class="diya diya2"></div>
+    
+    
+    
+<!-- MATA KI ANKHE - JS CONTROL -->
+<div class="maa-eyes-farman drawing black" id="mataEyes" onclick="blinkEyes()">
+  <img src="black-eyes.jpg">
+  <div class="eyelid top"></div>
+  <div class="eyelid bottom"></div>
+  <div class="sindoor-glow"></div>
+</div>
+
+<!-- Test ke liye 2 button - chahe to hata dena -->
+<div style="text-align:center; margin-top:10px;">
+  <button onclick="openEyes()" style="background:#e8c36a; border:0; padding:6px 12px; border-radius:6px;">Aankhe Khol</button>
+  <button onclick="closeEyes()" style="background:#7a0a14; color:#fff; border:0; padding:6px 12px; border-radius:6px;">Band Kar</button>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</section>
+
+
+
+
+<section class="section" id="idols" style="background: radial-gradient(circle at 20% 30%, rgba(232,195,106,0.12) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(142,26,36,0.35) 0%, transparent 50%);">
+  <div class="title">
+    <h2>नवदुर्गा • NAVDURGA</h2>
+    <p>The 9 Divine Forms of Maa Durga - Same Glass Frame</p>
+  </div>
+  <div class="grid" id="idolGrid">
+    <!-- 1 -->
+    <div class="glass" onclick="openModal('Maa Shailaputri','Parvat Raj Himalaya ki putri - Day 1','📍 Bihar Sharif','mata1.jpg')">
+      <div class="glass-img" style="background-image:url('mata1.jpg')"><span class="badge">Day 1 • Shailaputri</span></div>
+      <div class="glass-body"><h3>1. Shailaputri</h3><p class="price">पहला रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
+    </div>
+    <!-- 2 -->
+    <div class="glass" onclick="openModal('Maa Brahmacharini','Tapasya ki Devi - Day 2','📍 Bihar Sharif','mata2.jpg')">
+      <div class="glass-img" style="background-image:url('mata2.jpg')"><span class="badge">Day 2 • Brahmacharini</span></div>
+      <div class="glass-body"><h3>2. Brahmacharini</h3><p class="price">दूसरा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
+    </div>
+    <!-- 3 -->
+    <div class="glass" onclick="openModal('Maa Chandraghanta','Shanti ki Devi - Day 3','📍 Bihar Sharif','mata3.jpg')">
+      <div class="glass-img" style="background-image:url('mata3.jpg')"><span class="badge">Day 3 • Chandraghanta</span></div>
+      <div class="glass-body"><h3>3. Chandraghanta</h3><p class="price">तीसरा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
+    </div>
+    <!-- 4 -->
+    <div class="glass" onclick="openModal('Maa Kushmanda','Brahmand ki Rachna - Day 4','📍 Bihar Sharif','mata4.jpg')">
+      <div class="glass-img" style="background-image:url('mata4.jpg')"><span class="badge">Day 4 • Kushmanda</span></div>
+      <div class="glass-body"><h3>4. Kushmanda</h3><p class="price">चौथा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
+    </div>
+    <!-- 5 -->
+    <div class="glass" onclick="openModal('Maa Skandamata','Kartikeya ki Mata - Day 5','📍 Bihar Sharif','mata5.jpg')">
+      <div class="glass-img" style="background-image:url('mata5.jpg')"><span class="badge">Day 5 • Skandamata</span></div>
+      <div class="glass-body"><h3>5. Skandamata</h3><p class="price">पांचवा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
+    </div>
+    <!-- 6 -->
+    <div class="glass" onclick="openModal('Maa Katyayani','Mahishasur Mardini - Day 6','📍 Bihar Sharif','mata6.jpg')">
+      <div class="glass-img" style="background-image:url('mata6.jpg')"><span class="badge">Day 6 • Katyayani</span></div>
+      <div class="glass-body"><h3>6. Katyayani</h3><p class="price">छठा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
+    </div>
+    <!-- 7 -->
+    <div class="glass" onclick="openModal('Maa Kalaratri','Andhkar Nashini - Day 7','📍 Bihar Sharif','mata7.jpg')">
+      <div class="glass-img" style="background-image:url('mata7.jpg')"><span class="badge">Day 7 • Kalaratri</span></div>
+      <div class="glass-body"><h3>7. Kalaratri</h3><p class="price">सातवा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
+    </div>
+    <!-- 8 -->
+    <div class="glass" onclick="openModal('Maa Mahagauri','Pavitrata ki Devi - Day 8','📍 Bihar Sharif','mata8.jpg')">
+      <div class="glass-img" style="background-image:url('mata8.jpg')"><span class="badge">Day 8 • Mahagauri</span></div>
+      <div class="glass-body"><h3>8. Mahagauri</h3><p class="price">आठवा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
+    </div>
+    <!-- 9 -->
+    <div class="glass" onclick="openModal('Maa Siddhidatri','Siddhiyon ki Data - Day 9','📍 Bihar Sharif','mata9.jpg')">
+      <div class="glass-img" style="background-image:url('mata9.jpg')"><span class="badge">Day 9 • Siddhidatri</span></div>
+      <div class="glass-body"><h3>9. Siddhidatri</h3><p class="price">नौवा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section" id="pandals" style="background:radial-gradient(circle at 10% 20%, rgba(232,195,106,0.06), transparent 50%)">
+  <div class="title"><h2>Popular Pandals in Bihar Sharif</h2><p>Immersive themed pandals • Bihar Sharif ke 11 mahashakti peeth</p></div>
   <div class="filters">
     <button class="active" onclick="filterCity('all',this)">All Bihar Sharif</button>
     <button onclick="filterCity('Bari Pahari',this)">Bari Pahari</button>
@@ -69,70 +439,330 @@ header h1{font-family:Cinzel;color:var(--gold);font-size:1.2rem}
     <button onclick="filterCity('Bhaisasur',this)">Bhaisasur</button>
     <button onclick="filterCity('Sohdih',this)">Sohdih</button>
   </div>
-
   <div class="pandal-grid" id="pandalGrid"></div>
 </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<section class="section" id="pandals" style="background:radial-gradient(circle at 10% 20%, rgba(232,195,106,0.06), transparent 50%)">
+  <div class="title"><h2>Popular Pandals Near You</h2><p>Immersive themed pandals • Book guided visits</p></div>
+  <div class="filters">
+   <button class="active" onclick="filterCity('all',this)">All Patna</button>
+    <button onclick="filterCity('Boring Road',this)">Boring Road</button>
+    <button onclick="filterCity('Dak Bungalow',this)">Dak Bungalow</button>
+    <button onclick="filterCity('Kankarbagh',this)">Kankarbagh</button>
+  </div>
+
+    
+  <div class="pandal-grid" id="pandalGrid"></div>
+</section>!-->
+
 <div class="modal" id="modal" onclick="if(event.target==this) this.classList.remove('show')">
   <div class="modal-box">
-    <div style="height:350px;background-size:cover;background-position:center" id="mImg"></div>
-    <div id="mGallery" style="display:flex;gap:8px;overflow-x:auto;padding:12px;background:#111;"></div>
-    <div style="padding:20px">
+    <div style="height:380px;background-size:cover;background-position:center" id="mImg"></div>
+    <div style="padding:22px">
       <h3 id="mTitle" style="font-family:Cinzel;color:var(--gold)"></h3>
-      <p id="mDesc" style="opacity:0.7;margin:10px 0;font-size:0.9rem;line-height:1.6"></p>
+      <p id="mDesc" style="opacity:0.6;margin:10px 0;font-size:0.9rem"></p>
       <p id="mLoc" style="color:var(--gold);font-size:0.8rem"></p>
-      <button class="btn-primary" style="margin-top:16px" onclick="document.getElementById('modal').classList.remove('show')">Band Kare</button>
+      <button class="btn-primary" style="margin-top:16px" onclick="document.getElementById('modal').classList.remove('show')">Close</button>
     </div>
   </div>
 </div>
 
+<footer>© 2025 DURGA UTSAV • Made with devotion in Patna, Bihar • #PatnaPujaDarshan</footer>
+
 <script>
-const pandals=[
-{title:"Bari Pahari Sarvajanik Durga Sthan - 100 Saal Purana", city:"Bari Pahari", crowd:"Very High", time:"6 AM - 2 AM", rating:4.9, km:"0.5 km", img:"https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800", tag:"100 Years Old", desc:"Bihar Sharif ka itihaas yahin se shuru hota hai. 100 saal se bhi zyada purani parampara hai is sthan ki. Kolkata ke karigaron dwara shuddh Ganga mitti se 15 ft unchi Maa ki murti banayi jati hai, jo sona-chandi ke asli gehno se saji hoti hai. Saptami se Dashami tak yahan din-raat bhog, bhakti sangeet aur chandi ki chhatra chadhayi ka vishal ayojan hota hai."},
-{title:"Pul Par Durga Puja Samiti - Sabse Bada Pandal", city:"Pul Par", crowd:"Extreme High", time:"24 Hours Open", rating:5.0, km:"1.2 km", img:"https://images.unsplash.com/photo-1598890777032-bde83547de05?q=80&w=800", tag:"Viral Theme", desc:"Ise Bihar Sharif ka Dak Bungalow kaha jata hai. Har saal yahan ka theme pure Bihar me charcha ka vishay hota hai - kabhi Kedarnath Dham, kabhi Ayodhya Ram Mandir, kabhi Belur Math. 50 lakh se zyada ke kharch se banta hai ye bhavya pandal. 30 ft ka pravesh dwar, light aur sound ka laser show iski pehchan hai."},
-{title:"Kargil Chowk Youth Club - Yuvaon Ki Shaan", city:"Kargil Chowk", crowd:"High", time:"5 PM - 1 AM", rating:4.8, km:"0.8 km", img:"https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?q=80&w=800", tag:"Creative", desc:"Bihar Sharif ke yuvaon ke jazbe ka prateek hai ye pandal. Sabse creative aur modern soch yahin milti hai. Har saal social message par theme hota hai jaise Beti Bachao, Swachh Nalanda. Yahan ka selfie zone, LED light decoration aur eco-friendly murti sabse zyada Instagram par viral hoti hai."},
-{title:"Soh Sarai Main Road - Bhakti Ka Sagar", city:"Soh Sarai", crowd:"Moderate", time:"6 AM - 11 PM", rating:4.9, km:"2.0 km", img:"https://images.unsplash.com/photo-1606293926075-69a00febf780?q=80&w=800", tag:"Shant Darshan", desc:"Soh Sarai ka ye pandal apni shanti aur pavitrata ke liye mashhoor hai. Yahan shor nahi, sirf sachchi bhakti milti hai. Rozana 1000+ kanya bhojan, mahilaon dwara kalash yatra aur Durga Saptashati ka paath hota hai. Jo log bheed se door shaant mann se Maa ka darshan karna chahte hain, wo yahin aate hain."},
-{title:"Mughal Kuan Nalanda Road - Royal Palace Theme", city:"Mughal Kuan", crowd:"High", time:"4 PM - 12 AM", rating:4.7, km:"1.5 km", img:"https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=800", tag:"Royal", desc:"Bihar Sharif ka sabse royal aur shahi andaaz wala pandal. Har saal Rajasthan ke mahal ya Mysore Palace jaisa theme banaya jata hai. Andar jaate hi aisa lagta hai jaise aap kisi raja ke darbar me aa gaye ho. Murti ki aankhein bilkul jeevant lagti hain, isiliye ise 'Jeevant Maa' bhi kehte hain."},
-{title:"Garhpar Ramchandrapur - Gaon Ki Parampara", city:"Bari Pahari", crowd:"Moderate", time:"5 AM - 10 PM", rating:4.6, km:"3.0 km", img:"https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800", tag:"Traditional", desc:"Shahar ke beech gaanv ki mitti ki khushboo wala pandal. Yahan aaj bhi purane zamane ki tarah baans aur pual se pandal banaya jata hai. Maa ki chowki, jagran aur dhol-tasha ka asli anand yahin milta hai. Dashami par sindoor khela dekhne layak hota hai."},
-{title:"Khasganj Amlatola - Bazar Ka Pandal", city:"Pul Par", crowd:"Very High", time:"10 AM - 2 AM", rating:4.8, km:"1.0 km", img:"https://images.unsplash.com/photo-1598890777032-bde83547de05?q=80&w=800", tag:"Bheed Wala", desc:"Bihar Sharif ke sabse bade bazaar ke beech ka pandal. Din me kharidari aur shaam ko Maa ke darshan. Vyapari sangh dwara ayojit is pandal me har bhakt ko prasad me chunari di jati hai. Ashtami ki raat ki maha aarti pure shahar me gunjti hai."},
-{title:"Naya Tola Badi Durga Maharani", city:"Soh Sarai", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"2.5 km", img:"https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800", tag:"Badi Maharani", desc:"Jise sab pyaar se 'Badi Durga Maharani' kehte hain. Yahan ki Maa ki murti Bihar Sharif me sabse unchi - lagbhag 18 ft. Visarjan ke din jab Maa ki shobha yatra nikalti hai to pura shahar ek saath umad padta hai. 50 dhol, 20 jhanki aur hazaron bhakton ke saath Maa ko vida kiya jata hai."},
-{title:"Mehdi Nagar - Maa Vaishno Darbar", city:"Mehdi Nagar", crowd:"Very High", time:"6 AM - 1 AM", rating:4.9, km:"1.8 km", img:"https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?q=80&w=800", tag:"Vaishno Theme", desc:"Mehdi Nagar ka ye pandal apne gufa wale design ke liye pure Bihar Sharif me mashhoor hai. Yahan har saal Maa Vaishno Devi ki gufa jaisa 100 ft lamba pandal banaya jata hai, jahan bhakton ko jhuk kar gufa ke andar se Maa ke darbar me jana padta hai. Andar thanda paani, bhajan aur jai mata di ke naaron se ekdum asli Vaishno Dham jaisa ehsaas hota hai."},
-{title:"Bhaisasur Mela Ground - Sabse Bada Mela", city:"Bhaisasur", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"3.5 km", img:"https://images.unsplash.com/photo-1606293926075-69a00febf780?q=80&w=800", tag:"Mela Ground", desc:"Bhaisasur ka mela ground pandal Bihar Sharif ka sabse bada mela maana jata hai. Yahan pandal ke saath-saath 200 se zyada dukane, jhule, khaane-peene ke stall aur meena bazaar lagta hai. Pandal har saal Kumbh Mela theme ya Akshardham Mandir theme par banta hai. Din me mela aur raat me Maa ki maha aarti, dono ka alag hi maza hai."},
-{title:"Sohdih Pul - Highway Ka Raja", city:"Sohdih", crowd:"High", time:"5 PM - 12 AM", rating:4.8, km:"4.0 km", img:"https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=800", tag:"Highway King", desc:"Sohdih ka ye pandal NH-20 highway par hone ki wajah se sabse zyada logon ko akarshit karta hai. Patna, Rajgir, Nawada se aane wale sabhi bhakt yahin pehle Maa ka darshan karte hain. 40 ft unchi lighting ka gate highway se hi dikhai deta hai. Truck, bus rok kar log yahan darshan karne aate hain."}
+
+// MATA KI ANKHE - JS SYSTEM
+const mataEyes = document.getElementById('mataEyes');
+
+function openEyes() {
+  mataEyes.classList.add('open');
+  console.log("Netra Khule");
+}
+
+function closeEyes() {
+  mataEyes.classList.remove('open');
+  console.log("Netra Band");
+}
+
+function blinkEyes() {
+  // Palak jhapkana - 1 baar band phir khol
+  closeEyes();
+  setTimeout(() => {
+    openEyes();
+  }, 250); // 250ms me wapas khul jayegi
+}
+
+// 1. Farman (envelope) khule to auto aankhe khule
+const envelope = document.querySelector('.envelope');
+if(envelope){
+  envelope.addEventListener('click', () => {
+    setTimeout(openEyes, 1300); // farman khulne ke 1.3 sec baad
+  });
+}
+
+// 2. Har 5 second me auto palak jhapkana - aur sundar lagega
+setInterval(() => {
+  if(mataEyes.classList.contains('open')){
+    blinkEyes();
+  }
+}, 5000);
+
+// 3. Shuru me band rakho
+closeEyes();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// MAGICAL PARTICLES
+const canvas=document.getElementById('canvas'), ctx=canvas.getContext('2d');
+function resize(){canvas.width=innerWidth; canvas.height=innerHeight} resize(); window.addEventListener('resize',resize);
+const particles=[...Array(80)].map(()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*2+0.5,vy:Math.random()*0.5+0.2,opacity:Math.random()*0.5+0.2}));
+function animate(){
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ particles.forEach(p=>{
+   p.y-=p.vy; if(p.y<0){p.y=innerHeight; p.x=Math.random()*innerWidth}
+   ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle=`rgba(232,195,106,${p.opacity})`; ctx.fill();
+   ctx.shadowBlur=10; ctx.shadowColor='#e8c36a';
+ });
+ requestAnimationFrame(animate);
+} animate();
+
+// SPARKLE CURSOR
+const cursor=document.getElementById('cursor');
+window.addEventListener('mousemove',e=>{
+ cursor.style.left=e.clientX-10+'px'; cursor.style.top=e.clientY-10+'px';
+ const s=document.createElement('div'); s.className='sparkle'; s.style.left=e.clientX+'px'; s.style.top=e.clientY+'px'; document.body.appendChild(s);
+ setTimeout(()=>s.remove(),1000);
+});
+
+// DATA - 9 maa pic & NAME HERE
+
+
+
+const idols = [
+  { title: "1. Maa Shailaputri", img: "https://i.ibb.co/4Z1W3d8/shailputri.jpg", price: "Day 1", tag: "Nav Durga" },
+  { title: "2. Maa Brahmacharini", img: "https://i.ibb.co/brahmacharini.jpg", price: "Day 2", tag: "Nav Durga" },
+  { title: "3. Maa Chandraghanta", img: "https://i.ibb.co/chandraghanta.jpg", price: "Day 3", tag: "Nav Durga" },
+  { title: "4. Maa Kushmanda", img: "https://i.ibb.co/kushmanda.jpg", price: "Day 4", tag: "Nav Durga" },
+  { title: "5. Maa Skandamata", img: "https://i.ibb.co/skandamata.jpg", price: "Day 5", tag: "Nav Durga" },
+  { title: "6. Maa Katyayani", img: "https://i.ibb.co/katyayani.jpg", price: "Day 6", tag: "Nav Durga" },
+  { title: "7. Maa Kalaratri", img: "https://i.ibb.co/kalaratri.jpg", price: "Day 7", tag: "Nav Durga" },
+  { title: "8. Maa Mahagauri", img: "https://i.ibb.co/mahagauri.jpg", price: "Day 8", tag: "Nav Durga" },
+  { title: "9. Maa Siddhidatri", img: "https://i.ibb.co/siddhidatri.jpg", price: "Day 9", tag: "Nav Durga" }
 ];
 
-function renderPandals(list){
-  const grid=document.getElementById('pandalGrid');
-  grid.innerHTML=list.map(p=>`
-    <div class="card" onclick="openModal('${p.title}','${p.desc}','${p.city}',['${p.img}','${p.img}','${p.img}'])">
-      <div class="card-img" style="background-image:url('${p.img}')"><span class="card-tag">${p.tag}</span></div>
-      <div class="card-body">
-        <h3>${p.title}</h3>
-        <p>${p.desc}</p>
-        <div class="meta"><span>📍 ${p.city}</span><span>⭐ ${p.rating}</span><span>⏰ ${p.time}</span></div>
-      </div>
-    </div>
-  `).join('');
+
+const pandals=[
+ {title:"Bari Pahari - 100 Saal Purana Darbar", city:"Bari Pahari", crowd:"Very High", time:"6 AM-2 AM", rating:4.9, km:"0.5 km", img:"https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800", desc:"Bihar Sharif ka 100 saal purana itihaas. Kolkata ke karigaron dwara shuddh Ganga mitti se 15 ft unchi Maa ki murti, sona-chandi ke gehno se saji hui. Yahan ki chandi ki chhatra chadhayi mashhoor hai."},
+ {title:"Pul Par - Sabse Bada Pandal", city:"Pul Par", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"1.2 km", img:"https://images.unsplash.com/photo-1598890777032-bde83547de05?q=80&w=800", desc:"Ise Bihar Sharif ka Dak Bungalow kaha jata hai. Har saal Kedarnath, Ayodhya Ram Mandir jaisa theme. 50 lakh ke kharch se banta hai, 30 ft ka pravesh dwar aur laser show yahan ki pehchan hai."},
+ {title:"Kargil Chowk - Yuvaon Ki Shaan", city:"Kargil Chowk", crowd:"High", time:"5 PM-1 AM", rating:4.8, km:"0.8 km", img:"https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?q=80&w=800", desc:"Yuvaon ke jazbe ka prateek. Social message theme jaise Beti Bachao, Swachh Nalanda. Selfie zone aur eco-friendly murti Instagram par sabse zyada viral hoti hai."},
+ {title:"Soh Sarai - Bhakti Ka Sagar", city:"Soh Sarai", crowd:"Moderate", time:"6 AM-11 PM", rating:4.9, km:"2.0 km", img:"https://images.unsplash.com/photo-1606293926075-69a00febf780?q=80&w=800", desc:"Shanti aur pavitrata ke liye mashhoor. Rozana 1000+ kanya bhojan, mahilaon dwara kalash yatra. Jo bheed se door shaant darshan karna chahte hain wo yahin aate hain."},
+ {title:"Mughal Kuan - Royal Palace Theme", city:"Mughal Kuan", crowd:"High", time:"4 PM-12 AM", rating:4.7, km:"1.5 km", img:"https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=800", desc:"Sabse royal pandal, Rajasthan ke mahal ya Mysore Palace jaisa theme. Murti ki aankhein jeevant lagti hain, isiliye ise 'Jeevant Maa' kehte hain."},
+ {title:"Garhpar Ramchandrapur - Gaon Ki Parampara", city:"Bari Pahari", crowd:"Moderate", time:"5 AM-10 PM", rating:4.6, km:"3.0 km", img:"https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800", desc:"Baans aur pual se banta hai pandal, gaon ki parampara wala. Dhol-tasha aur Dashami par sindoor khela dekhne layak hota hai."},
+ {title:"Khasganj Amlatola - Bazar Ka Pandal", city:"Pul Par", crowd:"Very High", time:"10 AM-2 AM", rating:4.8, km:"1.0 km", img:"https://images.unsplash.com/photo-1598890777032-bde83547de05?q=80&w=800", desc:"Bihar Sharif ke sabse bade bazaar ke beech ka pandal. Har bhakt ko chunari prasad me di jati hai. Ashtami ki maha aarti pure shahar me gunjti hai."},
+ {title:"Naya Tola - Badi Durga Maharani", city:"Soh Sarai", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"2.5 km", img:"https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800", desc:"18 ft unchi sabse badi murti - Badi Durga Maharani. Visarjan par 50 dhol, 20 jhanki ke saath Maa ki shobha yatra nikalti hai."},
+ {title:"Mehdi Nagar - Maa Vaishno Darbar", city:"Mehdi Nagar", crowd:"Very High", time:"6 AM-1 AM", rating:4.9, km:"1.8 km", img:"https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?q=80&w=800", desc:"Mehdi Nagar ka gufa wala pandal. 100 ft lambi Vaishno Devi gufa jaisa pandal, jhuk kar darshan ko jana padta hai. Asli Vaishno Dham jaisa ehsaas."},
+ {title:"Bhaisasur Mela Ground - Sabse Bada Mela", city:"Bhaisasur", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"3.5 km", img:"https://images.unsplash.com/photo-1606293926075-69a00febf780?q=80&w=800", desc:"Bihar Sharif ka sabse bada mela ground. 200 dukane, jhule, meena bazaar. Har saal Kumbh Mela ya Akshardham theme par pandal banta hai."},
+ {title:"Sohdih Pul - Highway Ka Raja", city:"Sohdih", crowd:"High", time:"5 PM-12 AM", rating:4.8, km:"4.0 km", img:"https://images.unsplash.com/photo-1561361058-c24cecae35ca?q=80&w=800", desc:"NH-20 highway par sabse zyada darshan. Patna-Rajgir se aane wale sab bhakt yahin rukte hain. 40 ft ka light gate highway se hi dikhta hai."}
+];
+
+
+
+
+
+
+
+
+
+
+
+/*const pandals=[
+ {title:"Royal Maroon Heritage Pandal", city:"Dak Bungalow", crowd:"Moderate", time:"6 AM-10 PM", rating:4.9, km:"2.5 km away", img:"https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800", desc:"Victoria Memorial replica, golden lights and devotional music."},
+ {title:"Modern Light Fusion Pandal", city:"Boring Road", crowd:"High", time:"5 PM-11 PM", rating:4.7, km:"4.1 km away", img:"https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=800", desc:"Laser show + traditional dhak, most Instagrammable pandal in Patna."},
+ {title:"Boring Road Palace Pandal", city:"Boring Road", crowd:"High", time:"4 PM-12 AM", rating:4.8, km:"1.2 km away", img:"https://images.unsplash.com/photo-1501394944743-246a9d6d2221?q=80&w=800", desc:"50ft palace theme with handloom work."},
+ {title:"Kankarbagh Eco Village", city:"Kankarbagh", crowd:"Low", time:"5 AM-10 PM", rating:4.6, km:"3.8 km away", img:"https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800", desc:"Made of bamboo, jute and paddy - sustainable art."}
+];*/
+
+function renderIdols(){
+ const g=document.getElementById('idolGrid');
+ g.innerHTML=idols.map(i=>`
+   <div class="glass" onclick="openModal('${i.title}','${i.desc}','${i.city}','${i.img}')">
+     <div class="glass-img" style="background-image:url('${i.img}')"><span class="badge">${i.tag}</span></div>
+     <div class="glass-body"><h3>${i.title}</h3><p class="price">${i.price}</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
+   </div>`).join('');
 }
+function renderPandals(list){
+ const g=document.getElementById('pandalGrid');
+ g.innerHTML=list.map(p=>`
+   <div class="glass pandal" onclick="openModal('${p.title}','${p.desc}','📍 ${p.city} • ${p.time}','${p.img}')">
+     <div class="pandal-img" style="background-image:url('${p.img}')"></div>
+     <div><h4>${p.title}</h4><small style="opacity:0.5">${p.city} • Themes: ${p.crowd} • Open: ${p.time}</small><br><small style="color:var(--gold)">★ ${p.rating} • ${p.km}</small></div>
+   </div>`).join('');
+}
+renderIdols(); renderPandals(pandals);
 
 function filterCity(city,btn){
-  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  if(city==='all') renderPandals(pandals);
-  else renderPandals(pandals.filter(p=>p.city===city));
+ document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+ if(city==='all') renderPandals(pandals); else renderPandals(pandals.filter(p=>p.city===city));
+}
+function openModal(t,d,l,img){
+ document.getElementById('mTitle').innerText=t;
+ document.getElementById('mDesc').innerText=d;
+ document.getElementById('mLoc').innerText=l;
+ document.getElementById('mImg').style.backgroundImage=`url('${img}')`;
+ document.getElementById('modal').classList.add('show');
 }
 
-function openModal(title,desc,loc,images){
-  document.getElementById('mTitle').innerText=title;
-  document.getElementById('mDesc').innerText=desc;
-  document.getElementById('mLoc').innerText='📍 '+loc;
-  let all=Array.isArray(images)?images:[images];
-  document.getElementById('mImg').style.backgroundImage=`url('${all[0]}')`;
-  document.getElementById('mGallery').innerHTML=all.map(img=>`<img src="${img}" onclick="document.getElementById('mImg').style.backgroundImage='url(\\'${img}\\')'" style="width:70px;height:70px;object-fit:cover;border-radius:8px;cursor:pointer;border:2px solid gold;">`).join('');
-  document.getElementById('modal').classList.add('show');
+
+
+
+// ===== SUNAHRA CHAMKILA SYSTEM =====
+const sunehriEnvelope = document.getElementById('sunehriEnvelope');
+const sunehriBarsat = document.getElementById('sunehriBarsat');
+
+function sunehriBarsaatBikhero(){
+  sunehriBarsat.innerHTML = '';
+  // 45 sunehre tukde
+  for(let i=0; i<45; i++){
+    const s = document.createElement('div');
+    s.className = 'sona-particle';
+    const angle = Math.random()*360;
+    const dist = 80 + Math.random()*260;
+    const x = Math.cos(angle*Math.PI/180)*dist + 'px';
+    const y = Math.sin(angle*Math.PI/180)*dist + 'px';
+    s.style.setProperty('--x', x);
+    s.style.setProperty('--y', y);
+    s.style.left = '50%';
+    s.style.top = '50%';
+    s.style.animationDelay = (Math.random()*0.4)+'s';
+    s.style.animationDuration = (0.9 + Math.random()*0.8)+'s';
+    const size = 4 + Math.random()*10;
+    s.style.width = size+'px';
+    s.style.height = size+'px';
+    // Kuch star shape ke liye text
+    if(Math.random() > 0.7){
+      s.innerHTML = '★';
+      s.style.background = 'transparent';
+      s.style.color = '#ffd700';
+      s.style.fontSize = size*2+'px';
+      s.style.boxShadow = '0 0 12px #ffd700';
+      s.style.width = 'auto';
+      s.style.height = 'auto';
+    }
+    sunehriBarsat.appendChild(s);
+    setTimeout(()=> s.remove(), 1800);
+  }
 }
 
-renderPandals(pandals);
+function toggleSunehriPatra(){
+  const isOpen = sunehriEnvelope.classList.contains('open');
+  if(!isOpen){
+    sunehriEnvelope.classList.add('open');
+    // Khulte hi 2 baar sunehri barsat
+    sunehriBarsaatBikhero();
+    setTimeout(sunehriBarsaatBikhero, 350);
+    setTimeout(sunehriBarsaatBikhero, 750);
+  }else{
+    sunehriEnvelope.classList.remove('open');
+  }
+}
+
+if(sunehriEnvelope){
+  sunehriEnvelope.addEventListener('click', toggleSunehriPatra);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 </body>
 </html>
