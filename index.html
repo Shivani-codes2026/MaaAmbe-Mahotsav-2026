@@ -543,18 +543,6 @@ window.addEventListener('mousemove',e=>{
 
 // DATA - 9 maa pic & NAME HERE
 
-/*const idols = [
-  { title: "1. Maa Shailaputri", img: "maa1.jpg", price: "Day 1", tag: "Nav Durga" },
-  { title: "2. Maa Brahmacharini", img: "maa2.jpg", price: "Day 2", tag: "Nav Durga" },
-  { title: "3. Maa Chandraghanta", img: "maa3.jpg", price: "Day 3", tag: "Nav Durga" },
-  { title: "4. Maa Kushmanda", img: "maa4.jpg", price: "Day 4", tag: "Nav Durga" },
-  { title: "5. Maa Skandamata", img: "maa5.jpg", price: "Day 5", tag: "Nav Durga" },
-  { title: "6. Maa Katyayani", img: "maa6.jpg", price: "Day 6", tag: "Nav Durga" },
-  { title: "7. Maa Kalaratri", img: "maa7.jpg", price: "Day 7", tag: "Nav Durga" },
-  { title: "8. Maa Mahagauri", img: "maa8.jpg", price: "Day 8", tag: "Nav Durga" },
-  { title: "9. Maa Siddhidatri", img: "maa9.jpg", price: "Day 9", tag: "Nav Durga" }
-];
-*/
 const idols = [
   { title: "1. Maa Shailputri", img: "maa1.jpg", price: "Day 1", tag: "Nav Durga", city: "Bihar Sharif, Bihar", desc: "Parvatraj ki putri, haath me Trishul aur Kamal, Vrishabh par virajman. Prakriti aur dhairya ka prateek, jeevan me sthirta aur nayi shuruaat dene wali." },
   { title: "2. Maa Brahmacharini", img: "maa2.jpg", price: "Day 2", tag: "Nav Durga", city: "Bihar Sharif, Bihar", desc: "Tapasya ki devi, haath me Japmala aur Kamandal, shwet vastra me. Gyaan, vairagya aur aatmabal pradaan karne wali, kathor sanyam ka roop." },
@@ -673,18 +661,6 @@ if(sunehriEnvelope){
   sunehriEnvelope.addEventListener('click', toggleSunehriPatra);
 }
 
-/* barsat*/
-const flowers = ['🌸','🌺','🏵️','🌼','✨','🍁','☀','💮'];
-function createFlower(){
-  const f = document.createElement('div');
-  f.className = 'flower';
-  f.innerText = flowers[Math.floor(Math.random()*flowers.length)];
-  f.style.left = Math.random()*100 + 'vw';
-  f.style.animationDuration = (Math.random()*3 + 4) + 's';
-  document.getElementById('flower-rain').appendChild(f);
-  setTimeout(()=>f.remove(), 7000);
-}
-setInterval(createFlower, 180);
 
 /*sound*/
  
