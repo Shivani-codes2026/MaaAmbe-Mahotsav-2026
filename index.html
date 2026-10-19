@@ -36,6 +36,32 @@ nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between
 .btn-book{border:1px solid var(--gold);padding:8px 20px;border-radius:30px;box-shadow:0 0 15px rgba(232,195,106,0.3);transition:0.3s}
 .btn-book:hover{background:var(--gold);color:#000;box-shadow:0 0 25px var(--gold)}
 
+/* maa eyes*/
+.maa-top{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  padding:12px 0 0 0;
+  background: transparent;
+}
+
+.maa-top-img{
+  width:92%;
+  max-width:360px; /* upar ke liye itna hi best hai */
+  height:auto;
+  aspect-ratio: 16/9; /* upar banner style me chaura lagega */
+  object-fit:cover;
+  object-position:top;
+  border-radius:14px;
+  border:1px solid rgba(232,195,106,0.3);
+  box-shadow:0 0 25px rgba(232,195,106,0.25);
+  display:block;
+  margin:0 auto;
+}
+
+
+
+  
 /* HERO */
 .hero{display:grid;grid-template-columns:1fr 1.1fr;min-height:92vh;align-items:center;padding:0 5%;position:relative}
 .hero-left h1{font-size:3.8rem;line-height:0.9}
@@ -195,12 +221,17 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
     <a href="#home" style="color:var(--gold)">Home</a>
     <a href="#idols">Navdurga Maa</a>
     <a href="#pandals">Pandals</a>
-    <a href="#">About</a>
-    <a class="btn-book" href="#pandals">Book Darshan</a>
+     <a class="btn-book" href="#pandals">Book Darshan</a>
   </div>
 </nav>
+<!-- HEADER khatam, yahan se MAA PHOTO start -->
+<div class="maa-top">
+  <img src="./images/maa.jpg" alt="Maa Durga" class="maa-top-img">
+</div>
 
+<!-- Iske baad aapka CELEBRATE Durga Puja wala section -->
 <section class="hero" id="home">
+  
   <div class="hero-left">
     <h1>Celebrate <i>Durga Puja</i></h1>
     <p>Discover handcrafted idols & immersive pandals of <b style="color:var(--gold)">Patna, Bihar</b> for the festive season. Bring home tradition, artistry and devotion.</p>
@@ -217,11 +248,8 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
   <div class="sunehri-envelope" id="sunehriEnvelope">
     <div class="sunehri-front">
       <div class="sunahra-mohar">बिहार<br>शरीफ</div>
-      <div class="sunahra-eyes" id="sunahraEyes">
-
-        <div class="eyelid top"></div>
-        <div class="eyelid bottom"></div>
-      </div>
+      
+  </div>
       <p class="sunahra-click">✨  निमंत्रण - क्लिक करें ✨</p>
     </div>
 
@@ -256,12 +284,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
   <div class="hero-right">
     <div class="diya diya1"></div><div class="diya diya2"></div>
     
-    
-<!-- Test ke liye 2 button - chahe to hata dena -->
-<div style="text-align:center; margin-top:10px;">
-  <button onclick="openEyes()" style="background:#e8c36a; border:0; padding:6px 12px; border-radius:6px;">Aankhe Khol</button>
-  <button onclick="closeEyes()" style="background:#7a0a14; color:#fff; border:0; padding:6px 12px; border-radius:6px;">Band Kar</button>
-</div>
+
                      
   </div>
 </section>
