@@ -18,7 +18,19 @@ a{text-decoration:none;color:inherit}
 .glow1{top:-100px;left:-100px} .glow2{bottom:-100px;right:-100px;background:radial-gradient(circle, rgba(142,26,36,0.3) 0%, transparent 70%)}
 @keyframes floatGlow{to{transform:translate(60px,40px) scale(1.2)}}
 
-
+/* AAPKA MAGICAL IMAGE BACKGROUND - bg.jpg */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background: 
+    linear-gradient(rgba(10,7,8,0.65), rgba(10,7,8,0.75)),
+    url('bg.jpg') center center / cover no-repeat;
+  z-index:-3;
+  pointer-events:none;
+}
+#canvas{ z-index:-1 !important; opacity:0.8 !important;}
+.glow{ z-index:-2 !important; }
 
 
 
@@ -299,7 +311,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
   
   <div class="hero-left">
     <h1>Celebrate <i>Durga Puja</i></h1>
-    <p>Discover handcrafted idols & immersive pandals of <b style="color:var(--gold)">Patna, Bihar</b> for the festive season. Bring home tradition, artistry and devotion.</p>
+    <p>Discover handcrafted idols & immersive pandals of BiharSharif<b style="color:var(--gold)">BiharSharif, Bihar</b> for the festive season. Bring home tradition, artistry and devotion.</p>
     <div class="hero-btns">
       <button class="btn-primary" onclick="document.getElementById('idols').scrollIntoView({behavior:'smooth'})">✨ Explore Idols →</button>
       <button class="btn-secondary" onclick="document.getElementById('pandals').scrollIntoView({behavior:'smooth'})">📍 Find Pandals</button>
@@ -343,7 +355,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
     <div class="hero-stats">
       <div class="stat"><b>100k+</b><br><small>Devotee</small></div>
       <div class="stat"><b>50+</b><br><small>Artistic Pandals</small></div>
-      <div class="stat"><b>25+</b><br><small>Since year</small></div>
+      <div class="stat"><b>25+</b><br><small>Since years</small></div>
     </div>
   </div>
   
@@ -515,14 +527,28 @@ function filterCity(city,btn){
  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
  if(city==='all') renderPandals(pandals); else renderPandals(pandals.filter(p=>p.city===city));
 }
-function openModal(t,d,l,img){
+/*function openModal(t,d,l,img){
  document.getElementById('mTitle').innerText=t;
  document.getElementById('mDesc').innerText=d;
  document.getElementById('mLoc').innerText=l;
  document.getElementById('mImg').style.backgroundImage=`url('${img}')`;
  document.getElementById('modal').classList.add('show');
-}
+}*/
 
+function openModal(t,d,l,img){
+document.getElementById('mTitle').innerText=t;
+document.getElementById('mDesc').innerText=d;
+document.getElementById('mLoc').innerText=l;
+document.getElementById('mImg').style.backgroundImage=`url('${img}')`;
+document.getElementById('mImg').style.backgroundSize='contain';
+document.getElementById('mImg').style.backgroundRepeat='no-repeat';
+document.getElementById('mImg').style.backgroundPosition='center top';
+document.getElementById('mImg').style.backgroundColor='#0a0708';
+document.getElementById('mImg').style.height='auto';
+document.getElementById('mImg').style.minHeight='520px';
+document.getElementById('modal').classList.add('show');
+}
+  
 // ===== SUNAHRA CHAMKILA SYSTEM =====
 const sunehriEnvelope = document.getElementById('sunehriEnvelope');
 const sunehriBarsat = document.getElementById('sunehriBarsat');
