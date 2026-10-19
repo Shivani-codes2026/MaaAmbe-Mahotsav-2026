@@ -260,12 +260,57 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
   filter: brightness(1.15) contrast(1.1) !important;
   background: transparent !important;
 }
+  /* barsat phool ki*/
 
+#flower-rain{
+  position:fixed; top:0; left:0; width:100%; height:100%;
+  pointer-events:none; z-index:9999; overflow:hidden;
+}
+.flower{
+  position:absolute; top:-10%; font-size:26px;
+  animation:fall linear forwards;
+}
+@keyframes fall{
+  0%{transform:translateY(-10%) rotate(0deg); opacity:1;}
+  100%{transform:translateY(110vh) rotate(720deg); opacity:0;}
+}
+
+  
+/*charan*/
+  .charan-eyes-container{
+  display:flex; justify-content:center; 
+  margin:30px 0 10px 0;
+  mix-blend-mode: lighten;
+}
+.charan-lighten-img{
+  width:220px;
+  mix-blend-mode: lighten;
+  filter:drop-shadow(0 0 15px gold) drop-shadow(0 0 25px #ff0000);
+  animation:charanGlow 2s infinite alternate;
+}
+@keyframes charanGlow{
+  0%{filter:drop-shadow(0 0 10px gold) brightness(1); transform:scale(1);}
+  100%{filter:drop-shadow(0 0 25px gold) drop-shadow(0 0 40px red) brightness(1.3); transform:scale(1.05);}
+}
+
+  /* all sound*/
+
+.maa-sound-section{
+  margin:10px 15px 20px 15px; padding:15px;
+  background:rgba(20,10,5,0.9); border:2px solid gold;
+  border-radius:20px; text-align:center;
+}
+.sound-buttons{display:flex; flex-wrap:wrap; justify-content:center; gap:10px;}
+.sound-buttons button{
+  background:linear-gradient(#ffcc00,#ff9900); border:none;
+  padding:10px 18px; border-radius:25px; font-weight:bold; cursor:pointer;
+}
+.sound-buttons .aarti-btn{background:linear-gradient(#ff0000,#ff6600); color:white;}
   
 </style>
 </head>
 <body>
-
+<div id="flower-rain"></div>
 <canvas id="canvas"></canvas>
 <div class="glow glow1"></div><div class="glow glow2"></div>
 <div class="cursor" id="cursor"></div>
@@ -305,6 +350,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
       <div class="sunahra-mohar">बिहार<br>शरीफ</div>
       
   </div>
+    
       <p class="sunahra-click">✨  निमंत्रण - क्लिक करें ✨</p>
     
 
@@ -342,8 +388,25 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
 
 <!-- LETTER TURANT NEECHE - NO GAP -->
 <div class="sunahra-wrapper" id="sunahraWrapper">
-
+  <!--charan-->
+  <div class="charan-eyes-container">
+  <img src="charan.png" class="charan-lighten-img" alt="Maa Ke Charan">
 </div>
+<!--sound-->
+  <div class="maa-sound-section">
+  <div class="sound-buttons">
+    <button onclick="playMaaSound('shankh')">🐚 Shankh</button>
+    <button onclick="playMaaSound('ghanti')">🔔 Ghanti</button>
+    <button onclick="playMaaSound('dhol')">🥁 Dhol</button>
+    <button onclick="playMaaSound('arti')" class="aarti-btn">🪔 Aarti</button>
+  </div>
+</div>
+
+<audio id="artiSound" src="arti.mp3" loop></audio>
+<audio id="shankhSound" src="shankh.mp3"></audio>
+<audio id="dholSound" src="dhol.mp3"></audio>
+<audio id="ghantiSound" src="ghanti.mp3"></audio>
+  
 <section class="section" id="idols" style="background: radial-gradient(circle at 20% 30%, rgba(232,195,106,0.12) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(142,26,36,0.35) 0%, transparent 50%);">
   <div class="title">
     <h2>🙏 नवदुर्गा ✨ NAVDURGA 🌺</h2>
@@ -586,7 +649,32 @@ if(sunehriEnvelope){
   sunehriEnvelope.addEventListener('click', toggleSunehriPatra);
 }
 
+/* barsat*/
+const flowers = ['🌸','🌺','🏵️','🌼','✨','🍁','☀','💮'];
+function createFlower(){
+  const f = document.createElement('div');
+  f.className = 'flower';
+  f.innerText = flowers[Math.floor(Math.random()*flowers.length)];
+  f.style.left = Math.random()*100 + 'vw';
+  f.style.animationDuration = (Math.random()*3 + 4) + 's';
+  document.getElementById('flower-rain').appendChild(f);
+  setTimeout(()=>f.remove(), 7000);
+}
+setInterval(createFlower, 180);
 
+/*sound*/
+  
+function playMaaSound(type){
+  const map = {
+    arti: document.getElementById('artiSound'),
+    shankh: document.getElementById('shankhSound'),
+    dhol: document.getElementById('dholSound'),
+    ghanti: document.getElementById('ghantiSound')
+  };
+  Object.values(map).forEach(a=>{a.pause(); a.currentTime=0;});
+  map[type].volume=0.8;
+  map[type].play();
+}
 
 </script>
 </body>
