@@ -196,37 +196,6 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
 }
 @media(max-width:600px){.grid{grid-template-columns:1fr} .hero-left h1{font-size:2.6rem} .hero-left h1 i{font-size:3rem}}
 
-  /* 1. Maa ki IMG chhota karo 
-.maa-top, .hero-img-wrap{
-  width:100%;
-  
-  justify-content:center;
-}
-
-.maa-top-img{
-  width:85% !important;
-  max-width:900px !important; /* yahan se chhota-bada hoga 
-  height:auto !important;
-  aspect-ratio:auto !important;
-  max-height:310px;
-  object-fit:contain;
-  margin:10px auto !important;
-  border-radius:16px;
-}
-
-
-
-.hero p, .celebrate-section p, .small-caption{
-  text-align:center !important;
-  margin:8px auto !important;
-  max-width:320px;
-}
-
-/* 3. Patra / laal box center 
-.patra, .durga-stuti-box{
-  margin:16px auto !important;
-  display:block !important;
-}*/
 
 /* EYES FULL HEADER */
 .maa-top{
@@ -283,6 +252,15 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
 @media(min-width:900px){
   .maa-top-img{height:52vh !important; min-height:380px !important;}
 }
+
+
+/* MAA KI AANKH KA BLACK HATANE KE LIYE */
+.hero img, .maa-eyes, img[src*="eyes"] {
+  mix-blend-mode: lighten !important;
+  filter: brightness(1.15) contrast(1.1) !important;
+  background: transparent !important;
+}
+
   
 </style>
 </head>
@@ -478,7 +456,7 @@ window.addEventListener('mousemove',e=>{
 
 // DATA - 9 maa pic & NAME HERE
 
-const idols = [
+/*const idols = [
   { title: "1. Maa Shailaputri", img: "maa1.jpg", price: "Day 1", tag: "Nav Durga" },
   { title: "2. Maa Brahmacharini", img: "maa2.jpg", price: "Day 2", tag: "Nav Durga" },
   { title: "3. Maa Chandraghanta", img: "maa3.jpg", price: "Day 3", tag: "Nav Durga" },
@@ -489,8 +467,18 @@ const idols = [
   { title: "8. Maa Mahagauri", img: "maa8.jpg", price: "Day 8", tag: "Nav Durga" },
   { title: "9. Maa Siddhidatri", img: "maa9.jpg", price: "Day 9", tag: "Nav Durga" }
 ];
-
-
+*/
+const idols = [
+  { title: "1. Maa Shailputri", img: "maa1.jpg", price: "Day 1", tag: "Nav Durga", city: "Bihar Sharif, Bihar", desc: "Parvatraj ki putri, haath me Trishul aur Kamal, Vrishabh par virajman. Prakriti aur dhairya ka prateek, jeevan me sthirta aur nayi shuruaat dene wali." },
+  { title: "2. Maa Brahmacharini", img: "maa2.jpg", price: "Day 2", tag: "Nav Durga", city: "Bihar Sharif, Bihar", desc: "Tapasya ki devi, haath me Japmala aur Kamandal, shwet vastra me. Gyaan, vairagya aur aatmabal pradaan karne wali, kathor sanyam ka roop." },
+  { title: "3. Maa Chandraghanta", img: "maa3.jpg", price: "Day 3", tag: "Nav Durga", city: "Bihar Sharif, Bihar", desc: "Maathe par ardh-chandra ghante ke aakar me, 10 bhujaon me astra-shastra, sher par sawar. Ghante ki dhwani se asuri shakti door karti, shanti aur raksha ki devi." },
+  { title: "4. Maa Kushmanda", img: "maa4.jpg", price: "Day 4", tag: "Nav Durga", city: "Bihar Sharif, Bihar", desc: "Brahmand ko muskaan se rachne wali, 8 haathon me siddhiyan, Surya me nivas. Urja, aarogya aur samriddhi dene wali devi." },
+  { title: "5. Maa Skandamata", img: "maa5.jpg", price: "Day 5", tag: "Nav Durga", city: "Bihar Sharif, Bihar", desc: "Skanda ki mata, goad me balak Skanda, kamal par virajman. Mamta aur raksha ka sangam, gyaan aur putra prapti karane wali." },
+  { title: "6. Maa Katyayani", img: "maa6.jpg", price: "Day 6", tag: "Nav Durga", city: "Bihar Sharif, Bihar", desc: "Maharishi Katyayan ki putri, sher par sawar, haath me talwar aur kamal. Asur samharini, dushmano par vijay aur manokamna poorti karne wali." },
+  { title: "7. Maa Kalaratri", img: "maa7.jpg", price: "Day 7", tag: "Nav Durga", city: "Bihar Sharif, Bihar", desc: "Kaale rang me bhayankar par shubhankari, gadhe par sawar, vajra aur khadag dhari. Andhkar, bhay aur negativity ko nasht karne wali." },
+  { title: "8. Maa Mahagauri", img: "maa8.jpg", price: "Day 8", tag: "Nav Durga", city: "Bihar Sharif, Bihar", desc: "Gaur varna, shwet vastra me pavitrata ki devi, vrishabh par virajman. Paapon ko dho kar ujjwal jeevan dene wali, kathor tap ka phal." },
+  { title: "9. Maa Siddhidatri", img: "maa9.jpg", price: "Day 9", tag: "Nav Durga", city: "Bihar Sharif, Bihar", desc: "Sab siddhiyon ki datri, kamal par virajman, 4 bhuja me shankh chakra gada padma. Gyaan, safalta aur moksha pradaan karne wali antim Navdurga." }
+];
 const pandals=[
  {title:"Bari Pahari - 100 Saal Purana Darbar", city:"Bari Pahari", crowd:"Very High", time:"6 AM-2 AM", rating:4.9, km:"0.5 km", img:"https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800", desc:"Bihar Sharif ka 100 saal purana itihaas. Kolkata ke karigaron dwara shuddh Ganga mitti se 15 ft unchi Maa ki murti, sona-chandi ke gehno se saji hui. Yahan ki chandi ki chhatra chadhayi mashhoor hai."},
  {title:"Pul Par - Sabse Bada Pandal", city:"Pul Par", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"1.2 km", img:"https://images.unsplash.com/photo-1598890777032-bde83547de05?q=80&w=800", desc:"Ise Bihar Sharif ka Dak Bungalow kaha jata hai. Har saal Kedarnath, Ayodhya Ram Mandir jaisa theme. 50 lakh ke kharch se banta hai, 30 ft ka pravesh dwar aur laser show yahan ki pehchan hai."},
@@ -527,13 +515,7 @@ function filterCity(city,btn){
  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
  if(city==='all') renderPandals(pandals); else renderPandals(pandals.filter(p=>p.city===city));
 }
-/*function openModal(t,d,l,img){
- document.getElementById('mTitle').innerText=t;
- document.getElementById('mDesc').innerText=d;
- document.getElementById('mLoc').innerText=l;
- document.getElementById('mImg').style.backgroundImage=`url('${img}')`;
- document.getElementById('modal').classList.add('show');
-}*/
+
 
 function openModal(t,d,l,img){
 document.getElementById('mTitle').innerText=t;
