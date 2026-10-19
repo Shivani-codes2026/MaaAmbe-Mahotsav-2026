@@ -172,7 +172,7 @@ bottom{transform:translateY(101%);}
 
 /* CARDS GLASS */
 /*.grid{display:grid;grid-template-columns:repeat(3,105px);gap:10px}*/
-.grid{display:grid;grid-template-columns:repeat(3,105px);gap:8px;max-width:335px;width:95%;margin:0 auto;justify-content:center}
+.grid{display:grid;grid-template-columns:repeat(3,130px);gap:8px;max-width:335px;width:95%;margin:0 auto;justify-content:center}
 
 .glass{background:linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));border:1px solid rgba(232,195,106,0.18);backdrop-filter:blur(20px);border-radius:20px;overflow:hidden;transition:0.4s;position:relative}
 .glass::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg, transparent, rgba(232,195,106,0.2), transparent);transition:0.6s}
@@ -207,6 +207,45 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
 .links{display:none} body{cursor:auto} .cursor{display:none}
 }
 @media(max-width:600px){.grid{grid-template-columns:1fr} .hero-left h1{font-size:2.6rem} .hero-left h1 i{font-size:3rem}}
+
+  /* 1. Maa ki IMG chhota karo */
+.maa-top, .hero-img-wrap{
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+
+.maa-top-img{
+  width:85% !important;
+  max-width:280px !important; /* yahan se chhota-bada hoga */
+  height:auto !important;
+  aspect-ratio:auto !important;
+  max-height:310px;
+  object-fit:contain;
+  margin:10px auto !important;
+  border-radius:16px;
+}
+
+/* 2. CELEBRATE aur caption center 
+.hero, .celebrate-wrap{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  text-align:center !important;
+  width:100%;
+  }*/
+
+.hero p, .celebrate-section p, .small-caption{
+  text-align:center !important;
+  margin:8px auto !important;
+  max-width:320px;
+}
+
+/* 3. Patra / laal box center */
+.patra, .durga-stuti-box{
+  margin:16px auto !important;
+  display:block !important;
+}
 </style>
 </head>
 <body>
@@ -301,47 +340,47 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
   <div class="grid" id="idolGrid">
     <!-- 1 -->
     <div class="glass" onclick="openModal('Maa Shailaputri','Parvat Raj Himalaya ki putri - Day 1','📍 Bihar Sharif','mata1.jpg')">
-      <div class="glass-img" style="background-image:url('mata1.jpg')"><span class="badge">Day 1 • Shailaputri</span></div>
+      <div class="glass-img" style="background-image:url('maa1.jpg')"><span class="badge">Day 1 • Shailaputri</span></div>
       <div class="glass-body"><h3>1. Shailaputri</h3><p class="price">पहला रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
     </div>
     <!-- 2 -->
     <div class="glass" onclick="openModal('Maa Brahmacharini','Tapasya ki Devi - Day 2','📍 Bihar Sharif','mata2.jpg')">
-      <div class="glass-img" style="background-image:url('mata2.jpg')"><span class="badge">Day 2 • Brahmacharini</span></div>
+      <div class="glass-img" style="background-image:url('maa2.jpg')"><span class="badge">Day 2 • Brahmacharini</span></div>
       <div class="glass-body"><h3>2. Brahmacharini</h3><p class="price">दूसरा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
     </div>
     <!-- 3 -->
     <div class="glass" onclick="openModal('Maa Chandraghanta','Shanti ki Devi - Day 3','📍 Bihar Sharif','mata3.jpg')">
-      <div class="glass-img" style="background-image:url('mata3.jpg')"><span class="badge">Day 3 • Chandraghanta</span></div>
+      <div class="glass-img" style="background-image:url('maa3.jpg')"><span class="badge">Day 3 • Chandraghanta</span></div>
       <div class="glass-body"><h3>3. Chandraghanta</h3><p class="price">तीसरा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
     </div>
     <!-- 4 -->
     <div class="glass" onclick="openModal('Maa Kushmanda','Brahmand ki Rachna - Day 4','📍 Bihar Sharif','mata4.jpg')">
-      <div class="glass-img" style="background-image:url('mata4.jpg')"><span class="badge">Day 4 • Kushmanda</span></div>
+      <div class="glass-img" style="background-image:url('maa4.jpg')"><span class="badge">Day 4 • Kushmanda</span></div>
       <div class="glass-body"><h3>4. Kushmanda</h3><p class="price">चौथा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
     </div>
     <!-- 5 -->
     <div class="glass" onclick="openModal('Maa Skandamata','Kartikeya ki Mata - Day 5','📍 Bihar Sharif','mata5.jpg')">
-      <div class="glass-img" style="background-image:url('mata5.jpg')"><span class="badge">Day 5 • Skandamata</span></div>
+      <div class="glass-img" style="background-image:url('maa5.jpg')"><span class="badge">Day 5 • Skandamata</span></div>
       <div class="glass-body"><h3>5. Skandamata</h3><p class="price">पांचवा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
     </div>
     <!-- 6 -->
     <div class="glass" onclick="openModal('Maa Katyayani','Mahishasur Mardini - Day 6','📍 Bihar Sharif','mata6.jpg')">
-      <div class="glass-img" style="background-image:url('mata6.jpg')"><span class="badge">Day 6 • Katyayani</span></div>
+      <div class="glass-img" style="background-image:url('maa6.jpg')"><span class="badge">Day 6 • Katyayani</span></div>
       <div class="glass-body"><h3>6. Katyayani</h3><p class="price">छठा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
     </div>
     <!-- 7 -->
     <div class="glass" onclick="openModal('Maa Kalaratri','Andhkar Nashini - Day 7','📍 Bihar Sharif','mata7.jpg')">
-      <div class="glass-img" style="background-image:url('mata7.jpg')"><span class="badge">Day 7 • Kalaratri</span></div>
+      <div class="glass-img" style="background-image:url('maa7.jpg')"><span class="badge">Day 7 • Kalaratri</span></div>
       <div class="glass-body"><h3>7. Kalaratri</h3><p class="price">सातवा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
     </div>
     <!-- 8 -->
     <div class="glass" onclick="openModal('Maa Mahagauri','Pavitrata ki Devi - Day 8','📍 Bihar Sharif','mata8.jpg')">
-      <div class="glass-img" style="background-image:url('mata8.jpg')"><span class="badge">Day 8 • Mahagauri</span></div>
+      <div class="glass-img" style="background-image:url('maa8.jpg')"><span class="badge">Day 8 • Mahagauri</span></div>
       <div class="glass-body"><h3>8. Mahagauri</h3><p class="price">आठवा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
     </div>
     <!-- 9 -->
     <div class="glass" onclick="openModal('Maa Siddhidatri','Siddhiyon ki Data - Day 9','📍 Bihar Sharif','mata9.jpg')">
-      <div class="glass-img" style="background-image:url('mata9.jpg')"><span class="badge">Day 9 • Siddhidatri</span></div>
+      <div class="glass-img" style="background-image:url('maa9.jpg')"><span class="badge">Day 9 • Siddhidatri</span></div>
       <div class="glass-body"><h3>9. Siddhidatri</h3><p class="price">नौवा रूप</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
     </div>
   </div>
