@@ -154,7 +154,7 @@ nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between
 .glass::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg, transparent, rgba(232,195,106,0.2), transparent);transition:0.6s}
 .glass:hover::before{left:100%}
 .glass:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(232,195,106,0.15)}
-.glass-img{height:140px;background-size:cover;background-position:center;position:relative}
+.glass-img{height:180px;background-size:contain;background-position:center;position:relative}
 .glass-body{padding:8px}
 .price{color:var(--gold);font-weight:300}
 .badge{position:absolute;top:12px;right:12px;background:var(--maroon);font-size:0.65rem;padding:4px 10px;border-radius:12px;border:1px solid var(--gold)}
@@ -184,7 +184,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
 }
 @media(max-width:600px){.grid{grid-template-columns:1fr} .hero-left h1{font-size:2.6rem} .hero-left h1 i{font-size:3rem}}
 
-  /* 1. Maa ki IMG chhota karo */
+  /* 1. Maa ki IMG chhota karo 
 .maa-top, .hero-img-wrap{
   width:100%;
   
@@ -193,7 +193,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
 
 .maa-top-img{
   width:85% !important;
-  max-width:900px !important; /* yahan se chhota-bada hoga */
+  max-width:900px !important; /* yahan se chhota-bada hoga 
   height:auto !important;
   aspect-ratio:auto !important;
   max-height:310px;
@@ -210,11 +210,68 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
   max-width:320px;
 }
 
-/* 3. Patra / laal box center */
+/* 3. Patra / laal box center 
 .patra, .durga-stuti-box{
   margin:16px auto !important;
   display:block !important;
+}*/
+
+/* EYES FULL HEADER */
+.maa-top{
+  width:100% !important;
+  max-width:100% !important;
+  padding:0 !important;
+  margin:0 !important;
+  display:block !important;
 }
+.maa-top-img{
+  width:100% !important;
+  max-width:100% !important;
+  max-height:none !important;
+  height:auto !important;
+  min-height:280px !important;
+  aspect-ratio:16/7 !important; /* chaura header banner */
+  object-fit:cover !important;
+  object-position:center top !important;
+  border-radius:0 !important;
+  border:none !important;
+  margin:0 !important;
+  display:block !important;
+}
+
+/* PATRA DESKTOP + MOBILE DONO ME CENTER */
+.hero{
+  display:flex !important;
+  flex-direction:column !important;
+  grid-template-columns:1fr !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:100% !important;
+  padding-left:0 !important;
+  padding-right:0 !important;
+}
+.hero-left{
+  width:100% !important;
+  max-width:700px !important;
+  margin:0 auto !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  text-align:center !important;
+}
+.hero-right{display:none !important;} /* khali right wala hissa hata diya */
+
+.sunahra-wrapper{
+  width:100% !important;
+  margin:24px auto !important;
+  display:flex !important;
+  justify-content:center !important;
+}
+
+@media(min-width:900px){
+  .maa-top-img{height:52vh !important; min-height:380px !important;}
+}
+  
 </style>
 </head>
 <body>
