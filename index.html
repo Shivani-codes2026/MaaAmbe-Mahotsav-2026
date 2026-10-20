@@ -662,7 +662,7 @@ if(sunehriEnvelope){
 }
 
 
-/*sound*/
+/*sound
  
 
 const flowers = ['🏵','☀','🌺','🌸','☀','🌼'];
@@ -694,12 +694,44 @@ function toggleFlowerBarsaat(){
   } else {
     flowerOn = false;
     rain.style.display = 'block';
-   /* flowerTimer = setInterval(createFlower, 180);*/
+   /* flowerTimer = setInterval(createFlower, 180);*
     btn.innerText = '🌸 Phool Arpit Stop';
     btn.style.background = ''; btn.style.color='';
   }
+}*/
+
+  
+const flowers = ['☀','🌺','☀','🌺','☀'];
+let flowerOn = false;
+let flowerTimer;
+
+function createFlower(){
+ if(!flowerOn) return;
+ const f = document.createElement('div');
+ f.className = 'flower';
+ f.innerText = flowers[Math.floor(Math.random()*flowers.length)];
+ f.style.left = Math.random()*100 + 'vw';
+ f.style.animationDuration = (Math.random()*3 + 4) + 's';
+ document.getElementById('flower-rain').appendChild(f);
+ setTimeout(()=>f.remove(), 7000);
 }
 
+function toggleFlowerBarsaat(){
+ const btn = document.getElementById('flowerToggleBtn');
+ const rain = document.getElementById('flower-rain');
+ if(flowerOn){
+  clearInterval(flowerTimer);
+  flowerOn = false;
+  rain.style.display = 'none';
+  rain.innerHTML = '';
+  btn.innerText = '🌸 Phool Arpit Start';
+ } else {
+  flowerOn = true;
+  rain.style.display = 'block';
+  flowerTimer = setInterval(createFlower, 180);
+  btn.innerText = '🌸 Phool Arpit Stop';
+ }
+}
 function playMaaSound(type){
   const map = {
     arti: document.getElementById('artiSound'),
@@ -711,6 +743,8 @@ function playMaaSound(type){
   map[type].volume=0.8; map[type].play();
   for(let i=0;i<15;i++) setTimeout(createFlower, i*100);
   }
+
+
 </script>
 </body>
 </html>
