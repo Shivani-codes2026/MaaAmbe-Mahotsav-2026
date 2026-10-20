@@ -505,18 +505,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
 </section>
 
 
-<!--<div class="modal" id="modal" onclick="if(event.target==this) this.classList.remove('show')">
-  <div class="modal-box">
-    <div style="height:380px;background-size:cover;background-position:center" id="mImg"></div>
-    <div style="padding:22px">
-      <h3 id="mTitle" style="font-family:Cinzel;color:var(--gold)"></h3>
-      <p id="mDesc" style="opacity:0.6;margin:10px 0;font-size:0.9rem"></p>
-      <p id="mLoc" style="color:var(--gold);font-size:0.8rem"></p>
-      <button class="btn-primary" style="margin-top:16px" onclick="document.getElementById('modal').classList.remove('show')">Close</button>
-    </div>
-  </div>
-</div>
--->
+
 <div class="modal" id="modal" onclick="if(event.target==this) this.classList.remove('show')">
   <div class="modal-box">
     <div id="mGallery" class="pandal-gallery"></div>
@@ -570,85 +559,8 @@ const idols = [
   { title: "8. Maa Mahagauri", img: "maa8.jpg", price: "Day 8", tag: "Nav Durga", city: "Bihar Sharif, Bihar", desc: "Gaur varna, shwet vastra me pavitrata ki devi, vrishabh par virajman. Paapon ko dho kar ujjwal jeevan dene wali, kathor tap ka phal." },
   { title: "9. Maa Siddhidatri", img: "maa9.jpg", price: "Day 9", tag: "Nav Durga", city: "Bihar Sharif, Bihar", desc: "Sab siddhiyon ki datri, kamal par virajman, 4 bhuja me shankh chakra gada padma. Gyaan, safalta aur moksha pradaan karne wali antim Navdurga." }
 ];
-/*const pandals=[
- {title:"Bari Pahari - 100 Saal Purana Darbar", city:"Bari Pahari", crowd:"Very High", time:"6 AM-2 AM", rating:4.9, km:"0.5 km", img:"pahadi1", desc:"Bihar Sharif ka 100 saal purana itihaas. Kolkata ke karigaron dwara shuddh Ganga mitti se 15 ft unchi Maa ki murti, sona-chandi ke gehno se saji hui. Yahan ki chandi ki chhatra chadhayi mashhoor hai."},
- {title:"Pul Par - Sabse Bada Pandal", city:"Pul Par", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"1.2 km", img:"pul", desc:"Ise Bihar Sharif ka Dak Bungalow kaha jata hai. Har saal Kedarnath, Ayodhya Ram Mandir jaisa theme. 50 lakh ke kharch se banta hai, 30 ft ka pravesh dwar aur laser show yahan ki pehchan hai."},
- {title:"Kargil Chowk - Yuvaon Ki Shaan", city:"Kargil Chowk", crowd:"High", time:"5 PM-1 AM", rating:4.8, km:"0.8 km", img:"kargil1", desc:"Yuvaon ke jazbe ka prateek. Social message theme jaise Beti Bachao, Swachh Nalanda. Selfie zone aur eco-friendly murti Instagram par sabse zyada viral hoti hai."},
- {title:"Soh Sarai - Bhakti Ka Sagar", city:"Soh Sarai", crowd:"Moderate", time:"6 AM-11 PM", rating:4.9, km:"2.0 km", img:"https://images.unsplash.com/photo-1606293926075-69a00febf780?q=80&w=800", desc:"Shanti aur pavitrata ke liye mashhoor. Rozana 1000+ kanya bhojan, mahilaon dwara kalash yatra. Jo bheed se door shaant darshan karna chahte hain wo yahin aate hain."},
- {title:"Mughal Kuan - Royal Palace Theme", city:"Mughal Kuan", crowd:"High", time:"4 PM-12 AM", rating:4.7, km:"1.5 km", img:"https:mugalkua1", desc:"Sabse royal pandal, Rajasthan ke mahal ya Mysore Palace jaisa theme. Murti ki aankhein jeevant lagti hain, isiliye ise 'Jeevant Maa' kehte hain."},
- {title:"Garhpar Ramchandrapur - Gaon Ki Parampara", city:"Bari Pahari", crowd:"Moderate", time:"5 AM-10 PM", rating:4.6, km:"3.0 km", img:"https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800", desc:"Baans aur pual se banta hai pandal, gaon ki parampara wala. Dhol-tasha aur Dashami par sindoor khela dekhne layak hota hai."},
- {title:"Khasganj Amlatola - Bazar Ka Pandal", city:"Pul Par", crowd:"Very High", time:"10 AM-2 AM", rating:4.8, km:"1.0 km", img:"https://images.unsplash.com/photo-1598890777032-bde83547de05?q=80&w=800", desc:"Bihar Sharif ke sabse bade bazaar ke beech ka pandal. Har bhakt ko chunari prasad me di jati hai. Ashtami ki maha aarti pure shahar me gunjti hai."},
- {title:"Naya Tola - Badi Durga Maharani", city:"Soh Sarai", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"2.5 km", img:"https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800", desc:"18 ft unchi sabse badi murti - Badi Durga Maharani. Visarjan par 50 dhol, 20 jhanki ke saath Maa ki shobha yatra nikalti hai."},
- {title:"Mehdi Nagar - Maa Vaishno Darbar", city:"Mehdi Nagar", crowd:"Very High", time:"6 AM-1 AM", rating:4.9, km:"1.8 km", img:"https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?q=80&w=800", desc:"Mehdi Nagar ka gufa wala pandal. 100 ft lambi Vaishno Devi gufa jaisa pandal, jhuk kar darshan ko jana padta hai. Asli Vaishno Dham jaisa ehsaas."},
- {title:"Bhaisasur Mela Ground - Sabse Bada Mela", city:"Bhaisasur", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"3.5 km", img:"bhainsasur1", desc:"Bihar Sharif ka sabse bada mela ground. 200 dukane, jhule, meena bazaar. Har saal Kumbh Mela ya Akshardham theme par pandal banta hai."},
- {title:"Sohdih Pul - Highway Ka Raja", city:"Sohdih", crowd:"High", time:"5 PM-12 AM", rating:4.8, km:"4.0 km", img:"sohdih", desc:"NH-20 highway par sabse zyada darshan. Patna-Rajgir se aane wale sab bhakt yahin rukte hain. 40 ft ka light gate highway se hi dikhta hai."}
-];
-
-const pandals=[
- {title:"Bari Pahari - 100 Saal Purana Darbar", city:"Bari Pahari", crowd:"Very High", time:"6 AM-2 AM", rating:4.9, km:"0.5 km", img:"pahadi2.jpeg", desc:"Bihar Sharif ka 100 saal purana itihaas. Kolkata ke karigaron dwara Ganga mitti se 15 ft unchi Maa ki murti. Yahan chandi ki chhatra chadhayi mashhoor hai. Photo: pahadi2.jpeg - Bari Pahari ki pahadi par sthit darbar."},
- {title:"Pul Par - Sabse Bada Pandal", city:"Pul Par", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"1.2 km", img:"pul1.jpeg", desc:"Bihar Sharif ka sabse bada pandal. Har saal Kedarnath, Ram Mandir theme. 50 lakh ke kharch se banta hai. Photo: pul1.jpeg - Pul Par ka vishaal pravesh dwar."},
- {title:"Kargil Chowk - Yuvaon Ki Shaan", city:"Kargil Chowk", crowd:"High", time:"5 PM-1 AM", rating:4.8, km:"0.8 km", img:"kargil1.jpeg", desc:"Yuvaon ke jazbe ka prateek. Social message theme - Beti Bachao. Selfie zone yahan sabse zyada viral hota hai. Photo: kargil1.jpeg - Kargil Chowk yuva samiti."},
- {title:"Soh Sarai - Bhakti Ka Sagar", city:"Soh Sarai", crowd:"Moderate", time:"6 AM-11 PM", rating:4.9, km:"2.0 km", img:"sohsarai1.jpeg", desc:"Shanti aur pavitrata ke liye mashhoor. Rozana 1000+ Kanya Bhojan. Bheed se door shaant darshan. Photo: sohsarai1.jpeg - Soh Sarai ki bhakti."},
- {title:"Mughal Kuan - Royal Palace Theme", city:"Mughal Kuan", crowd:"High", time:"4 PM-12 AM", rating:4.7, km:"1.5 km", img:"mohaddi1.jpeg", desc:"Royal mahal jaisa theme - Rajasthan ke mahal jaisa. Murti ki aankhein jeevant lagti hain. Photo: mohaddi1.jpeg - Mughal Kuan ka royal darbar."},
- {title:"Garhpar Ramchandrapur - Gaon Ki Parampara", city:"Bari Pahari", crowd:"Moderate", time:"5 AM-10 PM", rating:4.6, km:"3.0 km", img:"pahadi3.jpeg", desc:"Baans aur pual se banta hai pandal, gaon ki parampara wala. Dhol-tasha aur Sindoor Khela. Photo: pahadi3.jpeg - Garhpar ki paramparik jhalak."},
- {title:"Khasganj Amlatola - Bazar Ka Pandal", city:"Pul Par", crowd:"Very High", time:"10 AM-2 AM", rating:4.8, km:"1.0 km", img:"mohaddi4.jpg", desc:"Bihar Sharif ke sabse bade bazaar ke beech ka pandal. Har bhakt ko chunari prasad. Photo: mohaddi4.jpg - Khasganj bazaar ka darshan."},
- {title:"Naya Tola - Badi Durga Maharani", city:"Soh Sarai", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"2.5 km", img:"kargil2.jpg", desc:"18 ft unchi sabse badi murti - Badi Durga Maharani. Visarjan par 50 dhol ke saath shobha yatra. Photo: kargil2.jpg - Naya Tola ki Badi Maa."},
- {title:"Mehdi Nagar - Maa Vaishno Darbar", city:"Mehdi Nagar", crowd:"Very High", time:"6 AM-1 AM", rating:4.9, km:"1.8 km", img:"kargil3.jpg", desc:"100 ft lambi Vaishno Devi gufa jaisa pandal, jhuk kar darshan ko jana padta hai. Photo: kargil3.jpg - Mehdi Nagar ka gufa darbar."},
- {title:"Bhaisasur Mela Ground - Sabse Bada Mela", city:"Bhaisasur", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"3.5 km", img:"bhainsasur1.jpeg", desc:"Bihar Sharif ka sabse bada mela ground. 200 dukane, jhule. Har saal Kumbh Mela theme. Photo: bhainsasur1.jpeg - Bhaisasur ka vishaal mela."},
- {title:"Sohdih Pul - Highway Ka Raja", city:"Sohdih", crowd:"High", time:"5 PM-12 AM", rating:4.8, km:"4.0 km", img:"sohdi.jpg", desc:"NH-20 highway par sabse zyada darshan. Patna-Rajgir se aane wale sab bhakt yahin rukte hain. Photo: sohdi.jpg - Sohdih Pul highway darshan."}
-];
-  
-  const pandals=[
- {title:"Bari Pahari - 100 Saal Purana Darbar", city:"Bari Pahari", crowd:"Very High", time:"6 AM-2 AM", rating:4.9, km:"0.5 km", img:"pahadi2.jpeg", gallery:["pahadi2.jpeg","pahadi3.jpeg"], desc:"Bihar Sharif ka 100 saal purana darbar."},
- {title:"Pul Par - Sabse Bada Pandal", city:"Pul Par", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"1.2 km", img:"pul1.jpeg", gallery:["pul1.jpeg"], desc:"Sabse bada pandal."},
- {title:"Kargil Chowk - Yuvaon Ki Shaan", city:"Kargil Chowk", crowd:"High", time:"5 PM-1 AM", rating:4.8, km:"0.8 km", img:"kargil1.jpeg", gallery:["kargil1.jpeg","kargil2.jpg","kargil3.jpg"], desc:"Yuvaon ki shaan. 3 photo swipe karke dekho."},
- {title:"Soh Sarai - Bhakti Ka Sagar", city:"Soh Sarai", crowd:"Moderate", time:"6 AM-11 PM", rating:4.9, km:"2.0 km", img:"sohsarai1.jpeg", gallery:["sohsarai1.jpeg"], desc:"Bhakti ka sagar."},
- {title:"Mughal Kuan - Royal Palace Theme", city:"Mughal Kuan", crowd:"High", time:"4 PM-12 AM", rating:4.7, km:"1.5 km", img:"mohaddi1.jpeg", gallery:["mohaddi1.jpeg","mohaddi4.jpg"], desc:"Royal palace theme."},
- {title:"Garhpar Ramchandrapur", city:"Bari Pahari", crowd:"Moderate", time:"5 AM-10 PM", rating:4.6, km:"3.0 km", img:"pahadi3.jpeg", gallery:["pahadi3.jpeg","pahadi2.jpeg"], desc:"Gaon ki parampara wala pandal."},
- {title:"Khasganj Amlatola", city:"Pul Par", crowd:"Very High", time:"10 AM-2 AM", rating:4.8, km:"1.0 km", img:"mohaddi4.jpg", gallery:["mohaddi4.jpg"], desc:"Bazar ke beech ka pandal."},
- {title:"Naya Tola - Badi Durga Maharani", city:"Soh Sarai", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"2.5 km", img:"sohsarai1.jpeg", gallery:["sohsarai1.jpeg"], desc:"18 ft unchi Badi Durga Maharani."},
- {title:"Mehdi Nagar - Vaishno Darbar", city:"Mehdi Nagar", crowd:"Very High", time:"6 AM-1 AM", rating:4.9, km:"1.8 km", img:"kargil2.jpg", gallery:["kargil2.jpg","kargil3.jpg"], desc:"Vaishno Devi gufa jaisa pandal."},
- {title:"Bhaisasur Mela Ground", city:"Bhaisasur", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"3.5 km", img:"bhainsasur1.jpeg", gallery:["bhainsasur1.jpeg","bhainsasur.jpg"], desc:"Sabse bada mela ground."},
- {title:"Sohdih Pul - Highway Ka Raja", city:"Sohdih", crowd:"High", time:"5 PM-12 AM", rating:4.8, km:"4.0 km", img:"sohdi.jpg", gallery:["sohdi.jpg"], desc:"Highway ka raja."}
-];
-
-function renderIdols(){
- const g=document.getElementById('idolGrid');
- g.innerHTML=idols.map(i=>`
-   <div class="glass" onclick="openModal('${i.title}','${i.desc}','${i.city}','${i.img}')">
-     <div class="glass-img" style="background-image:url('${i.img}')"><span class="badge">${i.tag}</span></div>
-     <div class="glass-body"><h3>${i.title}</h3><p class="price">${i.price}</p><p style="opacity:0.5;font-size:0.75rem;margin-top:6px">View Details</p></div>
-   </div>`).join('');
-}
-function renderPandals(list){
- const g=document.getElementById('pandalGrid');
- g.innerHTML=list.map(p=>`
-   <div class="glass pandal" onclick="openModal('${p.title}','${p.desc}','📍 ${p.city} • ${p.time}','${p.img}')">
-     <div class="pandal-img" style="background-image:url('${p.img}')"></div>
-     <div><h4>${p.title}</h4><small style="opacity:0.5">${p.city} • Themes: ${p.crowd} • Open: ${p.time}</small><br><small style="color:var(--gold)">★ ${p.rating} • ${p.km}</small></div>
-   </div>`).join('');
-}
-renderIdols(); renderPandals(pandals);
-
-function filterCity(city,btn){
- document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
- if(city==='all') renderPandals(pandals); else renderPandals(pandals.filter(p=>p.city===city));
-}
 
 
-function openModal(t,d,l,img){
-document.getElementById('mTitle').innerText=t;
-document.getElementById('mDesc').innerText=d;
-document.getElementById('mLoc').innerText=l;
-document.getElementById('mImg').style.backgroundImage=`url('${img}')`;
-document.getElementById('mImg').style.backgroundSize='contain';
-document.getElementById('mImg').style.backgroundRepeat='no-repeat';
-document.getElementById('mImg').style.backgroundPosition='center top';
-document.getElementById('mImg').style.backgroundColor='#0a0708';
-document.getElementById('mImg').style.height='auto';
-document.getElementById('mImg').style.minHeight='520px';
-document.getElementById('modal').classList.add('show');
-}*/
   const pandals=[
  {title:"Bari Pahari - 100 Saal Purana Darbar", city:"Bari Pahari", crowd:"Very High", time:"6 AM-2 AM", rating:4.9, km:"0.5 km", img:"pahadi2.jpeg", gallery:["pahadi2.jpeg","pahadi3.jpeg"], desc:"Bihar Sharif ka 100 saal purana darbar."},
  {title:"Pul Par - Sabse Bada Pandal", city:"Pul Par", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"1.2 km", img:"pul1.jpeg", gallery:["pul1.jpeg"], desc:"Sabse bada pandal."},
