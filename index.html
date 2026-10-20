@@ -429,10 +429,10 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
   </div>
 </div>
 
-<audio id="artiSound" src="Artijaimaa.mp3" loop></audio>
+<audio id="artiSound" src="artijaimaa.mp3" loop></audio>
 <audio id="shankhSound" src="shankh.mp3"></audio>
-<audio id="dholSound" src="meri maa.mp3"></audio>
-<audio id="ghantiSound" src="Nagada Baj.mp3"></audio>
+<audio id="dholSound" src="merimaa.mp3"></audio>
+<audio id="ghantiSound" src="nagadabaj.mp3"></audio>
    <section class="section" id="idols" style="background: radial-gradient(circle at 20% 30%, rgba(232,195,106,0.12) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(142,26,36,0.35) 0%, transparent 50%);">
   <div class="title"> 
     <h2>🙏 नवदुर्गा ✨ NAVDURGA 🌺</h2>
@@ -562,7 +562,7 @@ const idols = [
 
 
   const pandals=[
- {title:"Bari Pahari - 100 Saal Purana Darbar", city:"Bari Pahari", crowd:"Very High", time:"6 AM-2 AM", rating:4.9, km:"0.5 km", img:"pahadi2.jpeg", gallery:["pahadi2.jpeg","pahadi3.jpeg"], desc:"Bihar Sharif ka 100 saal purana darbar."},
+ {title:"Bari Pahari ", city:"Bari Pahari", crowd:"Very High", time:"6 AM-2 AM", rating:4.9, km:"0.5 km", img:"pahadi2.jpeg", gallery:["pahadi2.jpeg","pahadi3.jpeg"], desc:"Bihar Sharif ka top pandal me se ak."},
  {title:"Pul Par - Sabse Bada Pandal", city:"Pul Par", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"1.2 km", img:"pul1.jpeg", gallery:["pul1.jpeg"], desc:"Sabse bada pandal."},
  {title:"Kargil Chowk - Yuvaon Ki Shaan", city:"Kargil Chowk", crowd:"High", time:"5 PM-1 AM", rating:4.8, km:"0.8 km", img:"kargil1.jpeg", gallery:["kargil1.jpeg","kargil2.jpg","kargil3.jpg"], desc:"Yuvaon ki shaan. 3 photo swipe karke dekho."},
  {title:"Soh Sarai - Bhakti Ka Sagar", city:"Soh Sarai", crowd:"Moderate", time:"6 AM-11 PM", rating:4.9, km:"2.0 km", img:"sohsarai1.jpeg", gallery:["sohsarai1.jpeg"], desc:"Bhakti ka sagar."},
@@ -692,9 +692,9 @@ function toggleFlowerBarsaat(){
     btn.innerText = '🌸 Phool Arpit Start';
     btn.style.background = '#555'; btn.style.color='white';
   } else {
-    flowerOn = true;
+    flowerOn = false;
     rain.style.display = 'block';
-    flowerTimer = setInterval(createFlower, 180);
+   /* flowerTimer = setInterval(createFlower, 180);*/
     btn.innerText = '🌸 Phool Arpit Stop';
     btn.style.background = ''; btn.style.color='';
   }
