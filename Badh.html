@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔱 Dussehra Vadh Mahotsav 🔱</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:#050505;color:white;overflow-x:hidden}
+header{text-align:center;padding:28px;background:linear-gradient(90deg,#4a0000,gold,#4a0000);box-shadow:0 5px 25px gold}
+header h1{font-size:32px;text-shadow:2px 2px 5px black}
+.section{position:relative;min-height:92vh;padding:30px 15px;display:flex;align-items:center;justify-content:center}
+#maaSection{background:radial-gradient(circle,#3a0a0a 0%,#000 85%)}
+#ramSection{background:radial-gradient(circle,#0a193a 0%,#000 85%)}
+.card{position:relative;background:linear-gradient(145deg,rgba(30,30,30,0.92),rgba(0,0,0,0.92));border:2px solid gold;border-radius:28px;padding:28px;max-width:520px;width:100%;text-align:center;box-shadow:0 0 45px rgba(255,215,0,0.35)}
+.arena{position:relative;height:230px;display:flex;justify-content:space-between;align-items:center;margin:22px 0}
+.real-icon{width:135px;height:135px;border-radius:50%;border:3px solid gold;object-fit:cover;background:#111;transition:all 0.8s ease}
+.real-icon.maa{box-shadow:0 0 35px #ff3b3b,0 0 65px gold}
+.real-icon.ram{box-shadow:0 0 35px #4aa8ff,0 0 65px gold}
+.weapon{position:absolute;left:34%;font-size:52px;opacity:0;z-index:5;filter:drop-shadow(0 0 12px gold)}
+.weapon.fire{animation:fly 0.7s cubic-bezier(.25,1,.5,1) forwards}
+@keyframes fly{0%{left:34%;opacity:1}100%{left:67%;opacity:1;transform:scale(2) rotate(360deg)}}
+.asur.blast{transform:scale(0) rotate(720deg);opacity:0;filter:blur(14px) brightness(2.5)}
+.title{font-size:34px;color:gold;text-shadow:3px 3px 12px red;display:none;margin-top:12px;animation:pop 0.6s}
+@keyframes pop{0%{transform:scale(0)}80%{transform:scale(1.2)}100%{transform:scale(1)}}
+.btn{margin-top:8px;background:linear-gradient(#ff2020,#ff9d00);color:white;border:none;padding:15px 40px;border-radius:35px;font-size:18px;font-weight:bold;cursor:pointer;box-shadow:0 6px 20px rgba(255,0,0,0.5)}
+canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:10}
+.phool{position:fixed;top:-70px;pointer-events:none;z-index:9999;animation:girna linear forwards}
+@keyframes girna{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+</style>
+</head>
+<body>
+<audio id="shankhSound" preload="auto"><source src="shankh.mp3"></audio>
+<audio id="ghantaSound" preload="auto"><source src="nagadabaj.mp3"></audio>
+
+<header><h1>🔱 जय माता दी | जय श्री राम 🏹</h1><p>🙏Aap Sabhi Ko Durga puja Or Vijaydhasmi Ki Hardik Shubkamnaye 🌺</p></header>
+
+<section class="section" id="maaSection">
+<canvas id="canvasMaa"></canvas>
+<div class="card">
+<h2 style="color:#ff9a9a">🦁 Maa Durga - Mahishasur Vadh</h2>
+<div class="arena">
+<img src="maa.png" class="real-icon maa" id="maaIcon">
+<div class="weapon" id="triMaa">🔱</div>
+<img src="bhainsa.png" class="real-icon asur" id="bhainsaIcon">
+</div>
+<h2 class="title" id="txtMaa">🔱 Mahishasur Vadh Sampann! 🔱</h2>
+<button class="btn" onclick="vadhMaa()">🔱 Trishul Prahar Karo</button>
+</div>
+</section>
+
+<section class="section" id="ramSection">
+<canvas id="canvasRam"></canvas>
+<div class="card">
+<h2 style="color:#9ac8ff">🏹 Shri Ram - Ravan Vadh</h2>
+<div class="arena">
+<img src="ram.png" class="real-icon ram" id="ramIcon">
+<div class="weapon" id="banRam">🏹</div>
+<img src="ravan.png" class="real-icon asur" id="ravanIcon">
+</div>
+<h2 class="title" id="txtRam">Happy Dussehra<br>👑 Ravan Vadh Sampann!</h2>
+<button class="btn" onclick="vadhRam()">🏹  Baan Prahar Karo</button>
+</div>
+</section>
+
+<script>
+function playShankh(){
+  const s=document.getElementById('shankhSound'), g=document.getElementById('ghantaSound');
+  if(s){s.currentTime=0;s.volume=0.95;s.play().catch(()=>{})}
+  setTimeout(()=>{if(g){g.currentTime=0;g.volume=0.85;g.play().catch(()=>{})}},600);
+}
+function blast(id,x,col){
+  const c=document.getElementById(id),ctx=c.getContext('2d');
+  c.width=c.offsetWidth;c.height=c.offsetHeight;
+  let p=[];for(let i=0;i<150;i++)p.push({x:c.width*x,y:c.height*0.5,vx:(Math.random()-0.5)*20,vy:(Math.random()-0.5)*20,r:Math.random()*5+3,c:`hsl(${col+Math.random()*40},100%,60%)`});
+  (function loop(){ctx.clearRect(0,0,c.width,c.height);p.forEach(o=>{o.x+=o.vx;o.y+=o.vy;o.vy+=0.3;ctx.fillStyle=o.c;ctx.beginPath();ctx.arc(o.x,o.y,o.r,0,6.28);ctx.fill()});p=p.filter(o=>o.y<c.height+30);if(p.length>0)requestAnimationFrame(loop)})();
+}
+function phoolBarsao(n=55){
+  const f=['🌸','🌺','🌼','🌷','💐','🌹','🏵️'];
+  for(let i=0;i<n;i++)setTimeout(()=>{
+    const d=document.createElement('div');d.className='phool';
+    d.innerHTML=f[Math.floor(Math.random()*f.length)];
+    d.style.left=Math.random()*100+'vw';d.style.fontSize=(24+Math.random()*30)+'px';
+    d.style.animationDuration=(3+Math.random()*3)+'s';
+    document.body.appendChild(d);setTimeout(()=>d.remove(),6000);
+  },i*100);
+}
+function vadhMaa(){
+  const w=document.getElementById('triMaa'),a=document.getElementById('bhainsaIcon'),t=document.getElementById('txtMaa');
+  a.classList.remove('blast');w.classList.remove('fire');t.style.display='none';
+  setTimeout(()=>w.classList.add('fire'),80);
+  setTimeout(()=>{a.classList.add('blast');t.style.display='block';blast('canvasMaa',0.72,0);playShankh();phoolBarsao(60)},720);
+}
+function vadhRam(){
+  const w=document.getElementById('banRam'),a=document.getElementById('ravanIcon'),t=document.getElementById('txtRam');
+  a.classList.remove('blast');w.classList.remove('fire');t.style.display='none';
+  setTimeout(()=>w.classList.add('fire'),80);
+  setTimeout(()=>{a.classList.add('blast');t.style.display='block';blast('canvasRam',0.72,25);playShankh();phoolBarsao(60)},680);
+}
+</script>
+</body>
+</html>
