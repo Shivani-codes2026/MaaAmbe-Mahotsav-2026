@@ -191,13 +191,19 @@ body::before{
 
 footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:center;opacity:0.6;font-size:0.8rem}
 
-@media(max-width:900px){
+/*@media(max-width:900px){
 .hero{grid-template-columns:1fr} .hero-right{height:480px;order:-1}
 .grid{grid-template-columns:repeat(2,1fr)} .pandal-grid{grid-template-columns:1fr}
 .links{display:none} body{cursor:auto} .cursor{display:none}
+}*/
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr} .hero-right{height:480px;order:-1}
+  .grid{grid-template-columns:repeat(2,1fr)} .pandal-grid{grid-template-columns:1fr}
+  .links{display:flex !important; flex-direction:row; flex-wrap:wrap; gap:12px; width:100%; margin-top:8px; opacity:1}
+  body{cursor:auto} .cursor{display:none}
 }
+  
 @media(max-width:600px){.grid{grid-template-columns:1fr} .hero-left h1{font-size:2.6rem} .hero-left h1 i{font-size:3rem}}
-
 
 /* EYES FULL HEADER */
 .maa-top{
@@ -528,7 +534,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
 
 <div style="display:flex; gap:10px; overflow-x:auto; padding:10px 0; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none;">
 
-  <img src="mela.jpg" style="height:240px; min-width:175px; width:175px; object-fit:cover; border-radius:16px; flex-shrink:0; scroll-snap-align:center; border:1px solid rgba(232,195,106,0.3);">
+  <img src="mela1.jpg" style="height:240px; min-width:175px; width:175px; object-fit:cover; border-radius:16px; flex-shrink:0; scroll-snap-align:center; border:1px solid rgba(232,195,106,0.3);">
 
   <img src="mela2.jpg" style="height:240px; min-width:175px; width:175px; object-fit:cover; border-radius:16px; flex-shrink:0; scroll-snap-align:center; border:1px solid rgba(232,195,106,0.3);">
 
