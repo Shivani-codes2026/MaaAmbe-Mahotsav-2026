@@ -327,7 +327,10 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
   0%{transform:translateY(-10%) rotate(0deg); opacity:1;}
   100%{transform:translateY(110vh) rotate(720deg); opacity:0;}
 }
-  
+  /* gallery */
+  .pandal-gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:0}
+.pandal-gallery::-webkit-scrollbar{display:none}
+.pandal-gallery img{min-width:100%;width:100%;height:380px;object-fit:contain;background:#0a0708;scroll-snap-align:center;flex-shrink:0}
 </style>
 </head>
 <body>
@@ -370,7 +373,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
     <div class="sunehri-front">
       <div class="sunahra-mohar">बिहार<br>शरीफ</div>
       
-  </div>
+  
     
       <p class="sunahra-click">✨  निमंत्रण - क्लिक करें ✨</p>
     
@@ -395,7 +398,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
     </div>
   </div>
 </div>
-    
+</div>   
     
     <div class="hero-stats">
       <div class="stat"><b>100k+</b><br><small>Devotee</small></div>
@@ -407,8 +410,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
     
 </section>
 
-<!-- LETTER TURANT NEECHE - NO GAP --
-<div class="sunahra-wrapper" id="sunahraWrapper">
+
   <!--charan-->
   <div class="charan-eyes-container">
   <img src="charan.jpg" class="charan-lighten-img" alt="Maa Ke Charan">
@@ -503,7 +505,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
 </section>
 
 
-<div class="modal" id="modal" onclick="if(event.target==this) this.classList.remove('show')">
+<!--<div class="modal" id="modal" onclick="if(event.target==this) this.classList.remove('show')">
   <div class="modal-box">
     <div style="height:380px;background-size:cover;background-position:center" id="mImg"></div>
     <div style="padding:22px">
@@ -514,6 +516,20 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
     </div>
   </div>
 </div>
+-->
+<div class="modal" id="modal" onclick="if(event.target==this) this.classList.remove('show')">
+  <div class="modal-box">
+    <div id="mGallery" class="pandal-gallery"></div>
+    <div style="padding:22px">
+      <h3 id="mTitle" style="font-family:Cinzel;color:var(--gold)"></h3>
+      <p id="mDesc" style="opacity:0.6;margin:10px 0;font-size:0.9rem"></p>
+      <p id="mLoc" style="color:var(--gold);font-size:0.8rem"></p>
+      <p style="opacity:0.4;font-size:0.7rem;margin-top:10px">👉 Swipe left or right to see more photos</p>
+      <button class="btn-primary" style="margin-top:16px" onclick="document.getElementById('modal').classList.remove('show')">Close</button>
+    </div>
+  </div>
+</div>
+ 
 
 <marquee><footer>© 2025 Maa DURGA UTSAV • Made with devotion in BiharSharif, Bihar • #BiharSharif-Puja-Darshan</footer></marquee>
 
@@ -567,7 +583,7 @@ const idols = [
  {title:"Bhaisasur Mela Ground - Sabse Bada Mela", city:"Bhaisasur", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"3.5 km", img:"bhainsasur1", desc:"Bihar Sharif ka sabse bada mela ground. 200 dukane, jhule, meena bazaar. Har saal Kumbh Mela ya Akshardham theme par pandal banta hai."},
  {title:"Sohdih Pul - Highway Ka Raja", city:"Sohdih", crowd:"High", time:"5 PM-12 AM", rating:4.8, km:"4.0 km", img:"sohdih", desc:"NH-20 highway par sabse zyada darshan. Patna-Rajgir se aane wale sab bhakt yahin rukte hain. 40 ft ka light gate highway se hi dikhta hai."}
 ];
-*/
+
 const pandals=[
  {title:"Bari Pahari - 100 Saal Purana Darbar", city:"Bari Pahari", crowd:"Very High", time:"6 AM-2 AM", rating:4.9, km:"0.5 km", img:"pahadi2.jpeg", desc:"Bihar Sharif ka 100 saal purana itihaas. Kolkata ke karigaron dwara Ganga mitti se 15 ft unchi Maa ki murti. Yahan chandi ki chhatra chadhayi mashhoor hai. Photo: pahadi2.jpeg - Bari Pahari ki pahadi par sthit darbar."},
  {title:"Pul Par - Sabse Bada Pandal", city:"Pul Par", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"1.2 km", img:"pul1.jpeg", desc:"Bihar Sharif ka sabse bada pandal. Har saal Kedarnath, Ram Mandir theme. 50 lakh ke kharch se banta hai. Photo: pul1.jpeg - Pul Par ka vishaal pravesh dwar."},
@@ -582,6 +598,19 @@ const pandals=[
  {title:"Sohdih Pul - Highway Ka Raja", city:"Sohdih", crowd:"High", time:"5 PM-12 AM", rating:4.8, km:"4.0 km", img:"sohdi.jpg", desc:"NH-20 highway par sabse zyada darshan. Patna-Rajgir se aane wale sab bhakt yahin rukte hain. Photo: sohdi.jpg - Sohdih Pul highway darshan."}
 ];
   
+  const pandals=[
+ {title:"Bari Pahari - 100 Saal Purana Darbar", city:"Bari Pahari", crowd:"Very High", time:"6 AM-2 AM", rating:4.9, km:"0.5 km", img:"pahadi2.jpeg", gallery:["pahadi2.jpeg","pahadi3.jpeg"], desc:"Bihar Sharif ka 100 saal purana darbar."},
+ {title:"Pul Par - Sabse Bada Pandal", city:"Pul Par", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"1.2 km", img:"pul1.jpeg", gallery:["pul1.jpeg"], desc:"Sabse bada pandal."},
+ {title:"Kargil Chowk - Yuvaon Ki Shaan", city:"Kargil Chowk", crowd:"High", time:"5 PM-1 AM", rating:4.8, km:"0.8 km", img:"kargil1.jpeg", gallery:["kargil1.jpeg","kargil2.jpg","kargil3.jpg"], desc:"Yuvaon ki shaan. 3 photo swipe karke dekho."},
+ {title:"Soh Sarai - Bhakti Ka Sagar", city:"Soh Sarai", crowd:"Moderate", time:"6 AM-11 PM", rating:4.9, km:"2.0 km", img:"sohsarai1.jpeg", gallery:["sohsarai1.jpeg"], desc:"Bhakti ka sagar."},
+ {title:"Mughal Kuan - Royal Palace Theme", city:"Mughal Kuan", crowd:"High", time:"4 PM-12 AM", rating:4.7, km:"1.5 km", img:"mohaddi1.jpeg", gallery:["mohaddi1.jpeg","mohaddi4.jpg"], desc:"Royal palace theme."},
+ {title:"Garhpar Ramchandrapur", city:"Bari Pahari", crowd:"Moderate", time:"5 AM-10 PM", rating:4.6, km:"3.0 km", img:"pahadi3.jpeg", gallery:["pahadi3.jpeg","pahadi2.jpeg"], desc:"Gaon ki parampara wala pandal."},
+ {title:"Khasganj Amlatola", city:"Pul Par", crowd:"Very High", time:"10 AM-2 AM", rating:4.8, km:"1.0 km", img:"mohaddi4.jpg", gallery:["mohaddi4.jpg"], desc:"Bazar ke beech ka pandal."},
+ {title:"Naya Tola - Badi Durga Maharani", city:"Soh Sarai", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"2.5 km", img:"sohsarai1.jpeg", gallery:["sohsarai1.jpeg"], desc:"18 ft unchi Badi Durga Maharani."},
+ {title:"Mehdi Nagar - Vaishno Darbar", city:"Mehdi Nagar", crowd:"Very High", time:"6 AM-1 AM", rating:4.9, km:"1.8 km", img:"kargil2.jpg", gallery:["kargil2.jpg","kargil3.jpg"], desc:"Vaishno Devi gufa jaisa pandal."},
+ {title:"Bhaisasur Mela Ground", city:"Bhaisasur", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"3.5 km", img:"bhainsasur1.jpeg", gallery:["bhainsasur1.jpeg","bhainsasur.jpg"], desc:"Sabse bada mela ground."},
+ {title:"Sohdih Pul - Highway Ka Raja", city:"Sohdih", crowd:"High", time:"5 PM-12 AM", rating:4.8, km:"4.0 km", img:"sohdi.jpg", gallery:["sohdi.jpg"], desc:"Highway ka raja."}
+];
 
 function renderIdols(){
  const g=document.getElementById('idolGrid');
@@ -619,6 +648,50 @@ document.getElementById('mImg').style.backgroundColor='#0a0708';
 document.getElementById('mImg').style.height='auto';
 document.getElementById('mImg').style.minHeight='520px';
 document.getElementById('modal').classList.add('show');
+}*/
+  const pandals=[
+ {title:"Bari Pahari - 100 Saal Purana Darbar", city:"Bari Pahari", crowd:"Very High", time:"6 AM-2 AM", rating:4.9, km:"0.5 km", img:"pahadi2.jpeg", gallery:["pahadi2.jpeg","pahadi3.jpeg"], desc:"Bihar Sharif ka 100 saal purana darbar."},
+ {title:"Pul Par - Sabse Bada Pandal", city:"Pul Par", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"1.2 km", img:"pul1.jpeg", gallery:["pul1.jpeg"], desc:"Sabse bada pandal."},
+ {title:"Kargil Chowk - Yuvaon Ki Shaan", city:"Kargil Chowk", crowd:"High", time:"5 PM-1 AM", rating:4.8, km:"0.8 km", img:"kargil1.jpeg", gallery:["kargil1.jpeg","kargil2.jpg","kargil3.jpg"], desc:"Yuvaon ki shaan. 3 photo swipe karke dekho."},
+ {title:"Soh Sarai - Bhakti Ka Sagar", city:"Soh Sarai", crowd:"Moderate", time:"6 AM-11 PM", rating:4.9, km:"2.0 km", img:"sohsarai1.jpeg", gallery:["sohsarai1.jpeg"], desc:"Bhakti ka sagar."},
+ {title:"Mughal Kuan - Royal Palace Theme", city:"Mughal Kuan", crowd:"High", time:"4 PM-12 AM", rating:4.7, km:"1.5 km", img:"mohaddi1.jpeg", gallery:["mohaddi1.jpeg","mohaddi4.jpg"], desc:"Royal palace theme."},
+ {title:"Garhpar Ramchandrapur", city:"Bari Pahari", crowd:"Moderate", time:"5 AM-10 PM", rating:4.6, km:"3.0 km", img:"pahadi3.jpeg", gallery:["pahadi3.jpeg","pahadi2.jpeg"], desc:"Gaon ki parampara wala pandal."},
+ {title:"Khasganj Amlatola", city:"Pul Par", crowd:"Very High", time:"10 AM-2 AM", rating:4.8, km:"1.0 km", img:"mohaddi4.jpg", gallery:["mohaddi4.jpg"], desc:"Bazar ke beech ka pandal."},
+ {title:"Naya Tola - Badi Durga Maharani", city:"Soh Sarai", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"2.5 km", img:"sohsarai1.jpeg", gallery:["sohsarai1.jpeg"], desc:"18 ft unchi Badi Durga Maharani."},
+ {title:"Mehdi Nagar - Vaishno Darbar", city:"Mehdi Nagar", crowd:"Very High", time:"6 AM-1 AM", rating:4.9, km:"1.8 km", img:"kargil2.jpg", gallery:["kargil2.jpg","kargil3.jpg"], desc:"Vaishno Devi gufa jaisa pandal."},
+ {title:"Bhaisasur Mela Ground", city:"Bhaisasur", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"3.5 km", img:"bhainsasur1.jpeg", gallery:["bhainsasur1.jpeg","bhainsasur.jpg"], desc:"Sabse bada mela ground."},
+ {title:"Sohdih Pul - Highway Ka Raja", city:"Sohdih", crowd:"High", time:"5 PM-12 AM", rating:4.8, km:"4.0 km", img:"sohdi.jpg", gallery:["sohdi.jpg"], desc:"Highway ka raja."}
+];
+  function renderIdols(){
+ const g=document.getElementById('idolGrid');
+ g.innerHTML=idols.map(i=>`
+  <div class="glass" onclick="openModal('${i.title}','${i.desc}','${i.city}','${i.img}')">
+   <div class="glass-img" style="background-image:url('${i.img}')"><span class="badge">${i.tag}</span></div>
+   <div class="glass-body"><h3>${i.title}</h3><p class="price">${i.price}</p><p style="opacity:0.5;font-size:0.8rem">${i.city}</p></div>
+  </div>`).join('');
+}
+function renderPandals(list){
+ const g=document.getElementById('pandalGrid');
+ g.innerHTML=list.map(p=>`
+   <div class="glass pandal" onclick="openModal('${p.title}','${p.desc}','📍 ${p.city} • ${p.time}','${p.img}', '${p.gallery.join(',')}')">
+     <div class="pandal-img" style="background-image:url('${p.img}')"></div>
+     <div><h4>${p.title}</h4><small style="opacity:0.5">${p.city} • ${p.time}</small><br><small style="color:var(--gold)">★ ${p.rating} • ${p.gallery.length} photos - Swipe to see more photos</small></div>
+   </div>`).join('');
+}
+renderIdols(); renderPandals(pandals);
+function filterCity(city,btn){
+ document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+ if(city=='all') renderPandals(pandals); else renderPandals(pandals.filter(p=>p.city===city));
+}
+function openModal(t,d,l,img,galleryStr){
+ document.getElementById('mTitle').innerText=t;
+ document.getElementById('mDesc').innerText=d;
+ document.getElementById('mLoc').innerText=l;
+ const gDiv=document.getElementById('mGallery');
+ let images = galleryStr ? galleryStr.split(',') : [img];
+ gDiv.innerHTML=images.map(s=>`<img src="${s.trim()}">`).join('');
+ document.getElementById('modal').classList.add('show');
+ gDiv.scrollLeft=0;
 }
   
 // ===== SUNAHRA CHAMKILA SYSTEM =====
@@ -680,7 +753,7 @@ if(sunehriEnvelope){
 /*sound*/
  
 
-const flowers = ['🌸','🌺','🏵️','🌼','✨','🌹'];
+const flowers = ['🏵','☀','🌺','🌸','☀','🌼'];
 let flowerOn = true;
 let flowerTimer;
 
@@ -704,13 +777,13 @@ function toggleFlowerBarsaat(){
     flowerOn = false;
     rain.style.display = 'none';
     rain.innerHTML = '';
-    btn.innerText = '🌸 Phool Barsaat Chalu Karo';
+    btn.innerText = '🌸 Phool Arpit Start';
     btn.style.background = '#555'; btn.style.color='white';
   } else {
     flowerOn = true;
     rain.style.display = 'block';
     flowerTimer = setInterval(createFlower, 180);
-    btn.innerText = '🌸 Phool Barsaat Band Karo';
+    btn.innerText = '🌸 Phool Arpit Stop';
     btn.style.background = ''; btn.style.color='';
   }
 }
