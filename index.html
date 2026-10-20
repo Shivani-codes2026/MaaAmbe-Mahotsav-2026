@@ -419,7 +419,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
  <!--all sound-c-->
 
 <div class="maa-controls-center">
-  <button id="flowerToggleBtn" onclick="toggleFlowerBarsaat()" class="flower-toggle-btn">🌸 Phool Barsaat Band Karo</button>
+  <button id="flowerToggleBtn" onclick="toggleFlowerBarsaat()" class="flower-toggle-btn">🌸 Phool Arpit start</button>
 
   <div class="maa-sound-center">
     <button onclick="playMaaSound('shankh')">🐚 Shankh</button>
@@ -489,7 +489,7 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
 
 
 <section class="section" id="pandals" style="background:radial-gradient(circle at 10% 20%, rgba(232,195,106,0.06), transparent 50%)">
-  <div class="title"><h2>Popular Pandals in Bihar Sharif</h2><p>Immersive themed pandals • Bihar Sharif ke 11 mahashakti peeth</p></div>
+  <div class="title"><h2>Popular Pandals in Bihar Sharif</h2><p>🎪</p></div>
   <div class="filters">
     <button class="active" onclick="filterCity('all',this)">All Bihar Sharif</button>
     <button onclick="filterCity('Bari Pahari',this)">Bari Pahari</button>
@@ -497,8 +497,8 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
     <button onclick="filterCity('Kargil Chowk',this)">Kargil Chowk</button>
     <button onclick="filterCity('Soh Sarai',this)">Soh Sarai</button>
     <button onclick="filterCity('Mughal Kuan',this)">Mughal Kuan</button>
-    <button onclick="filterCity('Mehdi Nagar',this)">Mehdi Nagar</button>
-    <button onclick="filterCity('Bhaisasur',this)">Bhaisasur</button>
+    <button onclick="filterCity('Mehdi Nagar',this)">Mohaddi Nagar</button>
+    <button onclick="filterCity('Bhaisasur',this)">Bhainsasur</button>
     <button onclick="filterCity('Sohdih',this)">Sohdih</button>
   </div>
   <div class="pandal-grid" id="pandalGrid"></div>
@@ -562,17 +562,17 @@ const idols = [
 
 
   const pandals=[
- {title:"Bari Pahari ", city:"Bari Pahari", crowd:"Very High", time:"6 AM-2 AM", rating:4.9, km:"0.5 km", img:"pahadi2.jpeg", gallery:["pahadi2.jpeg","pahadi3.jpeg"], desc:"Bihar Sharif ka top pandal me se ak."},
- {title:"Pul Par - Sabse Bada Pandal", city:"Pul Par", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"1.2 km", img:"pul1.jpeg", gallery:["pul1.jpeg"], desc:"Sabse bada pandal."},
+ {title:"Bari Pahari ", city:"Bari Pahari", crowd:"Very High", time:"6 AM-2 AM", rating:4.9, km:"0.5 km", img:"pahadi2.jpeg", gallery:["pahadi2.jpeg","pahadi3.jpeg",], desc:"Bihar Sharif ka top pandal me se ak."},
+    
  {title:"Kargil Chowk - Yuvaon Ki Shaan", city:"Kargil Chowk", crowd:"High", time:"5 PM-1 AM", rating:4.8, km:"0.8 km", img:"kargil1.jpeg", gallery:["kargil1.jpeg","kargil2.jpg","kargil3.jpg"], desc:"Yuvaon ki shaan. 3 photo swipe karke dekho."},
- {title:"Soh Sarai - Bhakti Ka Sagar", city:"Soh Sarai", crowd:"Moderate", time:"6 AM-11 PM", rating:4.9, km:"2.0 km", img:"sohsarai1.jpeg", gallery:["sohsarai1.jpeg"], desc:"Bhakti ka sagar."},
- {title:"Mughal Kuan - Royal Palace Theme", city:"Mughal Kuan", crowd:"High", time:"4 PM-12 AM", rating:4.7, km:"1.5 km", img:"mohaddi1.jpeg", gallery:["mohaddi1.jpeg","mohaddi4.jpg"], desc:"Royal palace theme."},
- {title:"Garhpar Ramchandrapur", city:"Bari Pahari", crowd:"Moderate", time:"5 AM-10 PM", rating:4.6, km:"3.0 km", img:"pahadi3.jpeg", gallery:["pahadi3.jpeg","pahadi2.jpeg"], desc:"Gaon ki parampara wala pandal."},
- {title:"Khasganj Amlatola", city:"Pul Par", crowd:"Very High", time:"10 AM-2 AM", rating:4.8, km:"1.0 km", img:"mohaddi4.jpg", gallery:["mohaddi4.jpg"], desc:"Bazar ke beech ka pandal."},
- {title:"Naya Tola - Badi Durga Maharani", city:"Soh Sarai", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"2.5 km", img:"sohsarai1.jpeg", gallery:["sohsarai1.jpeg"], desc:"18 ft unchi Badi Durga Maharani."},
- {title:"Mehdi Nagar - Vaishno Darbar", city:"Mehdi Nagar", crowd:"Very High", time:"6 AM-1 AM", rating:4.9, km:"1.8 km", img:"kargil2.jpg", gallery:["kargil2.jpg","kargil3.jpg"], desc:"Vaishno Devi gufa jaisa pandal."},
+ {title:"Soh Sarai - Bhakti Ka Sagar", city:"Soh Sarai", crowd:"Moderate", time:"6 AM-11 PM", rating:4.9, km:"2.0 km", img:"sohsarai1.jpeg", gallery:["sohsarai1.jpeg","soh1.jpeg], desc:"Bhakti ka sagar."},
+ {title:"Mughal Kuan - Royal Palace Theme", city:"Mughal Kuan", crowd:"High", time:"4 PM-12 AM", rating:4.7, km:"1.5 km", img:"mugalkua2.jpeg", gallery:["mugalkua2.jpeg","mohaddi4.jpg"], desc:"Royal palace theme."},
+    
+ {title:"Khasganj Amlatola", city:"Pul Par", crowd:"Very High", time:"10 AM-2 AM", rating:4.8, km:"1.0 km", img:"pul1.jpeg", gallery:["pul1.jpeg"], desc:"Bazar ke beech ka pandal."},
+ {title:"Naya Tola - Badi Durga Maharani", city:"Soh Sarai", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"2.5 km", img:"sohsarai1.jpeg", gallery:["sohsarai1.jpeg","soh1.jpeg"], desc:"18 ft unchi Badi Durga Maharani."},
+ {title:"Mehdi Nagar - Vaishno Darbar", city:"Mohaddi Nagar", crowd:"Very High", time:"6 AM-1 AM", rating:4.9, km:"1.8 km", img:"mohaddi1.jpg", gallery:["mohaddi1.jpeg","mohaddi4.jpg"], desc:"Vaishno Devi gufa jaisa pandal."},
  {title:"Bhaisasur Mela Ground", city:"Bhaisasur", crowd:"Extreme High", time:"24 Hours", rating:5.0, km:"3.5 km", img:"bhainsasur1.jpeg", gallery:["bhainsasur1.jpeg","bhainsasur.jpg"], desc:"Sabse bada mela ground."},
- {title:"Sohdih Pul - Highway Ka Raja", city:"Sohdih", crowd:"High", time:"5 PM-12 AM", rating:4.8, km:"4.0 km", img:"sohdi.jpg", gallery:["sohdi.jpg"], desc:"Highway ka raja."}
+ {title:"Sohdih Pul - Highway Ka Raja", city:"Sohdih", crowd:"High", time:"5 PM-12 AM", rating:4.8, km:"4.0 km", img:"sohdi.jpg", gallery:["sohdi.jpg","soh1.jpeg","sohdi2.jpeg","sohdi3.jpeg"], desc:"Highway ka raja."}
 ];
   function renderIdols(){
  const g=document.getElementById('idolGrid');
@@ -662,43 +662,9 @@ if(sunehriEnvelope){
 }
 
 
-/*sound
+/*sound*/
  
 
-const flowers = ['🏵','☀','🌺','🌸','☀','🌼'];
-let flowerOn = true;
-let flowerTimer;
-
-function createFlower(){
-  if(!flowerOn) return;
-  const f = document.createElement('div');
-  f.className = 'flower';
-  f.innerText = flowers[Math.floor(Math.random()*flowers.length)];
-  f.style.left = Math.random()*100 + 'vw';
-  f.style.animationDuration = (Math.random()*3 + 4) + 's';
-  document.getElementById('flower-rain').appendChild(f);
-  setTimeout(()=>f.remove(), 7000);
-}
-flowerTimer = setInterval(createFlower, 180);
-
-function toggleFlowerBarsaat(){
-  const btn = document.getElementById('flowerToggleBtn');
-  const rain = document.getElementById('flower-rain');
-  if(flowerOn){
-    clearInterval(flowerTimer);
-    flowerOn = false;
-    rain.style.display = 'none';
-    rain.innerHTML = '';
-    btn.innerText = '🌸 Phool Arpit Start';
-    btn.style.background = '#555'; btn.style.color='white';
-  } else {
-    flowerOn = false;
-    rain.style.display = 'block';
-   /* flowerTimer = setInterval(createFlower, 180);*
-    btn.innerText = '🌸 Phool Arpit Stop';
-    btn.style.background = ''; btn.style.color='';
-  }
-}*/
 
   
 const flowers = ['☀','🌺','☀','🌺','☀'];
@@ -732,17 +698,7 @@ function toggleFlowerBarsaat(){
   btn.innerText = '🌸 Phool Arpit Stop';
  }
 }
-/*function playMaaSound(type){
-  const map = {
-    arti: document.getElementById('artiSound'),
-    shankh: document.getElementById('shankhSound'),
-    dhol: document.getElementById('dholSound'),
-    ghanti: document.getElementById('ghantiSound')
-  };
-  Object.values(map).forEach(a=>{a.pause(); a.currentTime=0;});
-  map[type].volume=0.8; map[type].play();
-  for(let i=0;i<15;i++) setTimeout(createFlower, i*100);
-  }*/
+
   
 function playMaaSound(type){
  const map = {
