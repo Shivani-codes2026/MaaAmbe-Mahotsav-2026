@@ -361,6 +361,43 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
   0%{transform:translateX(0)}
   100%{transform:translateX(-50%)}
 }
+
+  /* Hamburger button */
+.menu-btn{
+  display:none;
+  width:42px; height:42px;
+  background:transparent;
+  border:1.5px solid var(--gold);
+  border-radius:8px;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+  cursor:pointer;
+}
+.menu-btn span{
+  width:20px; height:2px; background:var(--gold);
+  display:block; transition:0.3s;
+}
+.menu-btn.active span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
+.menu-btn.active span:nth-child(2){ opacity:0; }
+.menu-btn.active span:nth-child(3){ transform:rotate(-45deg) translate(5px,-5px); }
+
+/* Mobile par menu band */
+@media (max-width: 768px){
+  .menu-btn{ display:flex; }
+  .links{
+    display:none;
+    position:absolute;
+    top:100%; left:0; width:100%;
+    background:#0a0708;
+    flex-direction:column;
+    padding:15px 20px;
+    border-top:2px solid var(--gold);
+    z-index:1000;
+  }
+  .links.show{ display:flex; }
+}
 </style>
 </head>
 <body>
@@ -371,7 +408,12 @@ footer{border-top:1px solid rgba(232,195,106,0.1);padding:30px 5%;text-align:cen
 
 <nav>
   <div class="logo">🔱 Maa DURGA <span>MAHOTSAV</span></div>
-  <div class="links">
+  <button id="menuBtn" class="menu-btn">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+  <div class="links" id="navMenu">
     <a href="#home" style="color:var(--gold)">Home</a>
     <a href="#idols">Navdurga Maa</a>
     <a href="#pandals">Pandals</a>
@@ -785,6 +827,15 @@ function playMaaSound(type){
  audio.play().catch(()=>{});
  for(let i=0;i<15;i++) setTimeout(createFlower, i*100);
 }
+
+  //button baar
+const menuBtn = document.getElementById('menuBtn');
+const navMenu = document.getElementById('navMenu');
+menuBtn.addEventListener('click', () => {
+  menuBtn.classList.toggle('active');
+  navMenu.classList.toggle('show');
+});
+
 
 </script>
 </body>
